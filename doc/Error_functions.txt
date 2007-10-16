@@ -1,0 +1,36 @@
+How to use AXE error functions
+------------------------------
+
+There are 3 error functions avaliable to all AXE libraries:
+
+
+********************************************************************************
+AXE_CHECK_DBG_ERROR( expression, error_number );
+
+HOW -> This check if expression is true. Otherwise it will raise an error and set library
+last_error to "error_number". This check only works in DEBUG mode.
+
+WHEN-> Use this function in places that can only raise errors in debug, but execution
+can continue.
+
+
+********************************************************************************
+AXE_CHECK_ERROR( expression, error_number );
+
+HOW -> Like AXE_CHECK_DBG_ERROR but it will work in Release compilations.
+
+WHEN -> Use this in errors that can be generated in Release mode but the execution can
+continue.
+
+
+********************************************************************************
+AXE_ASSERT( expression );
+
+HOW -> This will stop execution if expression is false. Only works in DEBUG compilations,
+but this can be changed if Release compilations are having some trouble.
+
+WHEN -> Use with all expressions that normally must be TRUE. Normally it is used for
+argument check, pointer safety and similar. Always use it in case of doubt between 
+this three error functions.
+
+$Id: Error_functions.txt,v 1.1 2004/06/09 18:22:45 doneval Exp $

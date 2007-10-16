@@ -1,0 +1,46 @@
+Libreria de manejo de recursos para AXE
+---------------------------------------
+
+Objetivos
+---------
+
+- Desde cualquier parte del codigo se puedan pedir datos guardados en disco.
+- Debe controlarse si se piden los mismos datos desde diferentes sitios para devolver el MISMO puntero.
+- Se debera contar las referencias a esos datos para saber cuando son candidatos de ser liberados de la memoria.
+- Los datos deberan guardarse de forma empaquetada en un solo fichero (estilo winzip).
+- La API debe delegar la funciones de encriptado y compresion a otras librerias.
+- Se debe poder preguntar cuanta memoria se esta usando, los recursos cargados y el numero de referencias.
+- Debe ser facil de manejo por diseñaroes y artistas para añadir contenido.
+- Debe evitar problemas de nombrado de ficheros de recursos.
+- Si contiene los mismo recursos, debe ser determinista entre varias ejecuciones y diferentes maquinas.
+- Debe mantener versiones de los recursos.
+- Se deben poder marcar los recursos "viejos" como "necesarios de actualizacion" y listarlos de una manera clara para los artistas.
+- Se le debe poder fijar una "memoria maxima" -> cuando la sobrepase debe avisar
+- Tambien una "memoria minima" -> para poder dejar en memoria los recursos que sean mas usados
+- Contador de usos de los recursos a lo largo de la ejecucion.
+- Debe poder usar un generador externo de numeros unicos.
+- Version interna del formato de fichero (como definiciones de mallas, version de script, etc ...)
+- PENSAR: como un recurso exige otro recurso (ejemplo, una malla exige una textura)
+
+Tipos de recursos previstos
+---------------------------
+
+-> Recursos Graficos
+  - Texturas DDS
+  - Archivos de definicion de malla (vertices, uv textura, ...)
+  - Archivos de efectos
+  - Archivos de definicion de sistemas de particulas (script?)
+  - Archivo de definicion de escena (octree ...)
+  - Script de configuracion de capacidades graficas
+
+-> Recursos Logicos
+  - Scripts de comportamiento
+  - Archivo de definicion logica de escena
+  
+-> Recursos de Sonidos
+  - Archivos de efectos .WAV
+  - Archivos de musica .OGG
+  - Script de definicion de propiedades musica /efecto (volumen por defecto, loop, marcas, etc ...)
+  
+-> Recursos de configuracion
+  - Flujo de configuracion del motor

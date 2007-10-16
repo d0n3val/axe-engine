@@ -1,0 +1,290 @@
+ORDENADAS =============================================================================================================
+- Que las libs puedan limpiar totalmente la memoria que tengan
+
+
+FICHEROS:
+- Gestion de ficheros como chunks de nivel 1 y que la lib de 3DS la use
+
+LOG:
+- habilitar ventana con TABS (o que le puedas pedir lo ultimos logs de X clasificacion)
+- Al menos añadir clasificacion arbitraria
+
+SIN ORDENAR =============================================================================================================
+
+MOTOR:
+- Estructura cliente - servidor modelo Unreal / quake
+- Gestion de eventos
+- Sistema de plug-ins para poder añadir .dll que automaticamete publiquen su interfaz al motor de scripting
+- Modos de aplicacion <-> memory manager
+  - Desde script algo del estilo: "create_application("name", long mb_memory_needed, char *start_func, *loop_func, *end_func);
+  - Podras arrancar tantos como quieras, destruirlos cuando quieras, y podran escribir en una memoria compartida del motor.
+- Profiler de cada "modulo" del motor
+
+(The filesystem does support more files and automatically uses the most recent file in case of 2 files with the same names
+distributed in more that one data file)
+
+LIBS NUEVAS:
+- CRC y MD5
+- BZIP2
+- Archivos / directorios (mirar http://zziplib.sourceforge.net/)
+
+EVENTOS:
+- Canal de eventos (se puede crear mas de uno)
+- Lista de "listeners" que escuchan cada evento
+- Implementar cola con prioridades
+- Poder enviar un mensaje para que llegue en el futuro
+- Metodos de limpiar mensajes, eliminar ciertos mensajes, buscar, modificar, filtrar (no aceptar algunos), grabar y cargar, etc
+- Acuse de recibo?
+- Alguna manera que el mismo mensaje explique que contienen sus parametros
+- Los filtros deberian ser mascaras de arrays de flags
+- Mensajes que "destruyen" otros. Ejemplo del ancla o cambio de municion.
+- Poder preguntar cuanto falta para que cierto mensaje sea procesado (para barras y timers).
+- Es importante que se puedan documentar bien los mensajes, saber rapidamente como hay que interpretar los datos de sus campos
+
+----API-----
+int channel_id = axev_create_channel();
+axev_stop_channel(int channel_id);
+axev_destroy_channel(int channel_id);
+
+axev_create_event();
+
+axev_send_event(int event_id, void *data, int channel_id=0);
+
+
+
+
+MAQUINA DE ESTADOS:
+- pensar
+
+CONTAINERS:
+- Array
+- Lista sencillamente enlazada
+- Flags -> pensar como "bloquear" un flag, o con una pila de cambios o algo asi ... que se cubra el caso que falla en el combate
+  naval de la recarga y el cambio de municion
+- Arbol
+- Tabla Hash
+- Pila (fifo, etc)
+- Lista ordenada por burbuja
+- qsort
+- radix
+#define FOR_EACH(func) for ... { (func;) }
+
+UI:
+- Hacer doc. de ideas y conversacion del otro dia del UI
+- Pensar el tema "ventanas"
+- Z de los UI
+- Gestion generica de drag & drop
+- Que los textos de los botones se ajusten automaticamente a su tamaño (traducciones que son mas largas en otros idiomas)
+
+CADENAS:
+- Añadir soporte para CRC para comparaciones rapidas
+- Checksum
+- En la lib de cadenas dar soporte comparacion por wildcards
+- Que pueda devolverte un float / int / uint / etc desde la cadena
+- Que puedar añadirle numericos, rollo Add(float f, int max_size) = + "4645.231345"
+- Cadenas "anchas" w_char para caracteres asiaticos y demas
+  - Otros idiomas como ?
+  - UNICODE?
+
+RASTER:
+- Cambios de dispostivos (problema windowed <-> fullscreen)
+- Screenshots (http://www.gamedev.net/reference/programming/features/sshot/)
+
+MOTOR de IA:
+- Una entidad que sea un punto y una direccion y se le puedan preguntar cosas como 
+  - quien tienes detras / delante / izquierda / derecha
+  - angulos que se forman con otros bichillos
+  - mejor camino hacia X
+- Buscar un motor gratuito o de prueba de IA para ver como funcionan
+
+PRIMITIVAS:
+- Metodos de "cut" en las primitivas (chungo?)
+- Mirar QHull
+- El test de interseccion debe devolver el punto mas cercano si no colisionan las primitivas
+- Añadir test de distancias entre primitivas
+- Que se puedan pintar las primitivas y que queden durante X tiempo pintandose
+- Tambien que te devuelva un ID y tu puedas hacerlo desaparecer cuando quieras o algo asi
+- Que se puedan pintar matrices, euler, angulos, vectores de todo tipo, quaternions, etc...
+
+SERIALIZACION:
+- Hacer doc. de lo que pretende ser
+- Reestablecer punteros que originalmente estaban a NULL
+- Calcular automaticamente el tamaño de memoria asignada a un puntero, evitar el "sizeof"
+- Quitar todo el codigo que sobra sobre scope, etc ...
+- Comprovar que el puntero sea valido cuando nos lo pasen
+- Controlar variables que apunten a la misma direccion
+- Antes de hacer cada memcpy() comprobar si tenemos el puntero allocatado (en modo debug) y mas
+comprovaciones
+- Añadir soporte para clasificacion arbitraria de los tipos de variables
+- Callback cuando una variable se haya modificado?
+- Añadir multitud de funciones para flexibilizar, como restaurar una variable, un grupo o todo. Lo
+mismo con actualizar, grabar, comparar.
+- Tenemos que hacer nosotros "malloc" en algun caso de la direccion de la variable?
+- CRC cuando grabamos un archivo de serializacion, para que si se cambia el numero o tamaño de las
+  variables o orden de las variables.
+
+MATH:
+- El ruido de perlin va en la lib de math ? NO, seguramente en un modulo de segundo nivel aparte
+axpn (axe perlin noise)
+- libs de mates en 3DNOW, SSE y SSE2
+- Tambien añadir tabla de sin, cos, asin, acos, tan, atan
+- clase matriz 2x2
+- clase angulo, euler_angles estaria formada por 3 "angulos" (mirar codigo final)
+  - Metodo para obetener un vector normalizado desde un angulo y al reves
+- Metodo para conseguir el perpendicular de un vector
+- En la lib de mates añadir operaciones con flotantes (flotante == flotante) y cosas asi ....
+hk_Vector3 hk_Vector3_Util::perp_vec( const hk_Vector3 &dir )
+{
+        hk_Vector3 res;
+
+        if ( hk_Math::fabs(dir.x) < 0.57f )
+        {
+                res.set_cross( hk_Vector3(1,0,0), dir );
+        }
+        else
+        {
+                res.set_cross( hk_Vector3(0,1,0), dir );
+        }
+        res.normalize();
+        return res;
+}
+//----------------------------------------------------------------------------------------------------------------
+// Obtiene el angulo del vector teniendo en cuenta el origen 0º en el vector 0, 1 y el sentido de rotación
+// de las agujas del reloj. Devuelve el angulo en radianes entre -PI , + PI.
+// ATENCION: Darse cuenta de que el origen no es el habitual!!
+//----------------------------------------------------------------------------------------------------------------
+inline float CVector2::getAngle() const
+{
+  // 0º es el eje OY
+  return atan2f (x, y);
+}
+
+inline float CVector2::DistanciaAngular (CVector2 const& otro) const
+{
+  return static_cast<float>(acos ( (x*otro.x + y*otro.y) / ( sqrt(x*x + y*y) * sqrt(otro.x*otro.x + otro.y*otro.y))));
+}
+
+HABLAR DE:
+- Mirar LuaPlus
+- lib de profiling
+- Gestor central de eventos/mensajes
+- Callbacks
+- Pensar como desde un pricipio el juego el juego ya tiene X idiomas
+- Discutir sistema 100% estable, rollo sistema operativo. Si falla una seccion del codigo controle los resultados e incluso pueda intentar recuperarse.
+- Una gestion para enviarnos un mail con el error que ha pasado.
+- Ademas cada bloque que se ejecuta deberia poderse activar y desactivar ... por ejemplo, el sonido!!!
+- Cambios de modo de juego
+- Control de errores y posible recuperacion
+
+---------------------------------------------------------------------------
+
+
+// BUGBUG: Why doesn't this call angle diff?!?!?
+float ApproachAngle( float target, float value, float speed )
+{
+        target = anglemod( target );
+        value = anglemod( value );
+
+        float delta = target - value;
+
+        // Speed is assumed to be positive
+        if ( speed < 0 )
+                speed = -speed;
+
+        if ( delta < -180 )
+                delta += 360;
+        else if ( delta > 180 )
+                delta -= 360;
+
+        if ( delta > speed )
+                value += speed;
+        else if ( delta < -speed )
+                value -= speed;
+        else
+                value = target;
+
+        return value;
+}
+
+
+// BUGBUG: Why do we need both of these?
+float AngleDiff( float destAngle, float srcAngle )
+{
+        float delta;
+
+        delta = destAngle - srcAngle;
+        if ( destAngle > srcAngle )
+        {
+                while ( delta >= 180 )
+                        delta -= 360;
+        }
+        else
+        {
+                while ( delta <= -180 )
+                        delta += 360;
+        }
+        return delta;
+}
+
+
+float AngleDistance( float next, float cur )
+{
+        float delta = next - cur;
+
+        if ( delta < -180 )
+                delta += 360;
+        else if ( delta > 180 )
+                delta -= 360;
+
+        return delta;
+}
+
+
+float AngleNormalize( float angle )
+{
+        while (angle > 180)
+        {
+                angle -= 360;
+        }
+        while (angle < -180)
+        {
+                angle += 360;
+        }
+        return angle;
+}
+
+
+/// Como podrian funcionar los scripts del motor: 
+
+//init.axe
+
+// Publicar el objeto "engine"
+// Publicar el objeto "application"
+engine->start_application(app->name, max_mem, app->start_func, app->end_fund, app->loop_func);
+// App recibe un puntero a la memoria compartida entre las aplicaciones
+
+app::start_func () {
+  app->load_resource("models.axm");
+  app->load_resource("animations.axn");
+  app->load_resource("ridly.axh");
+  app->load_resource("macute.axh");
+  app->load_resource("audio.axa");
+  app->load_resource("textures.axt");
+  app->load_resource("scripts.axs");
+  // Quiza substituir todo esto por un ZIP con todo app->load_resources("resources.axz"); 
+  
+  app->load_scene("scene.axc");
+  app->start_scene();
+}
+
+app::loop_func () {
+  // check if game ended
+  if( app->logic->check_end_game() == TRUE ) {
+    app->logic->bye();
+  }
+}
+
+app::end_func() {
+  app->stop_scene();
+  app->unload_all_resources();
+}

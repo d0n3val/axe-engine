@@ -1,0 +1,48 @@
+Axe coding goals
+----------------
+
+Axe (Axe is a X-rated Engine) is a freeware 3D game engine. This is the list of
+coding goals:
+
+- Mainly we code it to learn and get fun!
+
+- Clarity and simplicity before ofuscated but very_optimized code.
+
+- Completely open source, use it in free or comercial projects
+
+- Target system software: MS Windows 2000+ with DirectX 9.0+
+
+- Target system hardware: Pentium III+ and Geforce FX / ATI Radeon
+
+- Try to not re-inventing the wheel, but in case we get fun coding this part!
+
+- All project will use simple english (we are spanish, so spect some errors as you
+  can see around ;)
+  
+- Eye-candy effects will be the last thing to do. First of all is a robust core
+  code.
+
+- The project will have three phases: In the first one, all base code will get
+  writed, only unavoidable code. In the second phase we will point out a little
+  game and implement the rest of the code we need to make run this game. The
+  third is still to define, but will contain, mainly, visual effects.
+  
+- The engine will be based on an editor. This editor must be enough to implement
+  all that is needed to create a complete game.
+  
+- It have to be possible to save, load, pause the game. It's also important to
+  be able to reproduce an exact sequence of events from a file.
+  
+More specific code goals:
+
+- Based on independent components. This components must be able to used without
+  the rest of the same level (check components.txt). Also every component will
+  show a "C" frontend, not C++ (except for math lib). It will be coded internally
+  with C++.
+- No need to say, we want a 100% data driven game engine
+- Code in DEBUG mode should test a lot; RELEASE not.
+- Doxygen is used for documentation
+
+13/11/2003 Ricard Pillosu <doneval@users.sf.net>
+
+$Id: Goals.txt,v 1.1 2004/05/02 16:32:30 doneval Exp $

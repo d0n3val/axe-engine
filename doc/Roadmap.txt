@@ -1,0 +1,95 @@
+AXE Roadmap
+-----------
+
+NOTE (Ricard): THIS FILE IS OUT OF DATE !!!!
+
+This file explain what we plan for the future. Note that this
+file will be updated with the result of discussions.
+
+(+) means already done 
+(*) means currently working on
+(-) means future plan
+
+... From 23/12/2003 (not documenting work already done)
+--- Distribution "kurds" --------------------------------------
+
++ Discussion what to do next (18/12/2003)
+* Axe-Engine 0.30 (ricard) level 1 Windows lib
+* Axe-Engine 0.34 (carlos) level 1 memory manager lib
+- Axe-Engine 0.38 (r/c) level 2 primitivies lib
+--- Distribution "policemen" ----------------------------------
+
+- Discuss ("central events managment")
+- Axe-Engine 0.44 (ricard) level 2 input lib
+- Axe-Engine 0.46 (ricard) level 2 scripting lib
+- Axe-Engine 0.50 (ricard) level 3 Network lib
+- Axe-Engine 0.54 (carlos) level 3 skeletal animation lib
+--- Distribution "squizo" -------------------------------------
+
+- Discuss
+- Axe-Game 0.2 Create a 2 players fighting game
+--- Distribution "cooker" -------------------------------------
+
+- Discuss (menus, editor, .axe packages)
+- Axe-Engine 0.58 (ricard) level 3 Menu lib
+- Axe-Game 0.4 Add simple 2D interface (live bars, ...)
+- Axe-Editor 0.1 (r/c) first release-
+--- Distribution "fetus" --------------------------------------
+
+- Discuss
+- Axe-Engine 0.62 (carlos) level 3 IA lib
+- Axe-Game 0.4 Add 1 player mode
+- Axe-Game 0.41 Add menu for selecting game mode
+--- Distribution "brutus" -------------------------------------
+
+- Discuss
+- Axe-Game 0.5 Add some bad guys around (double dragon style)
+- Axe 0.66 (carlos) level 3 physics lib
+- Axe-Game 0.6 Add some interactive objects around
+--- Distribution "janitor" ------------------------------------
+
+- Discuss
+- Axe 0.70 (?) level 3 portal rendering lib
+- Axe-Game 0.8 Create a building enviroment
+--- Distribution "disruptor" ----------------------------------
+
+- Discuss
+- Axe 0.74 (ricard) level 3 terrain rendering lib
+- Axe-Game 1.0 Create an island enviroment
+--- Distribution "zenmaster" ----------------------------------
+
+- Axe 0.78 (?) level 3 sound lib
+- Axe-Game 1.1 Add musics and effects
+--- Distribution "sonik" --------------------------------------
+
+- Axe 0.84 (?) level 3 particles lib
+- Axe-Game 1.2 Add particle effects
+--- Distribution "lobotomized" --------------------------------
+
+- Axe 0.88 (?) level 2 video lib
+- Axe-Game 1.3 Add intro video / cut-scenes
+--- Distribution "cyclon" -------------------------------------
+
+- ?
+
+Other distro names: garred, rats
+Other things to do: math_see, vitual_file_system, shadows, shaders, ?
+
+Todo Editor roadmap:
+- loading .3DS files, saving to .AXE package files
+- Creation of instances
+- Translation, rotation, scale of instances
+- Script editor
+- Properties editor
+- Animation binding
+- Menu editor
+- Input editor
+- IA editor
+- physics props editor
+- portal editor
+- musics / effects editor
+- video bindings
+- Particle editor
+
+23/12/2003 Ricard Pillosu <doneval@users.sf.net>
+$Id: Roadmap.txt,v 1.2 2004/09/24 17:58:38 doneval Exp $
