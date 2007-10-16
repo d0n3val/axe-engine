@@ -1,0 +1,165 @@
+AXE CODING STYLE
+----------------
+
+We use a tool named "GreatCode". You can get it at http://perso.club-internet.fr/cbeaudet/
+The is a GC.cfg in this directory. Just follow the instructions at the docs. 
+
+-----------------
+Naming convention
+-----------------
+
+All filenames should start with ax$$, where $$ is the two letter code for the 
+component.
+
+For example, for the "raster" component, we define all filenames with 
+"axrt_filename" like "axrt_static_buffer.cpp"
+
+Functions follow the same guide:
+axrt_begin_frame()
+
+All components should manage their namespace like "axe_raster"
+
+-------
+Editing
+-------
+
+- Try to mantain less than 80 character wide in code lines.
+
+------
+Coding
+------
+
+- Is prefered using long names than strange abreviations:
+
+	OK: this_is_my_complex_function(), int num_intances;
+	BAD: timc_f(), int ni;
+	
+- Never use 1 line abreviations
+
+	BAD: (...) ? return(true) : return(false)
+	
+	OK: if(...) 
+	{
+		call_func();
+	}
+	
+- Please, NO warnings! the code is warning free, try to mantain this!
+
+- typical "for" statement
+
+	for(register int i=0; i<top; ++i) 
+	{
+		// code here
+	}
+	
+- When there are a lot of variable declarations in a pack, try to use TABS to 
+clarify, like this:
+
+	int		my_var1		= 453262;
+	float		my_other_var	= 0.2345f;
+	unsigned char	last_var	= 'a';
+
+- In equality expressions is preferred (but optional) contants in the left side.
+Never use direct expressions like "( my_pointer )".
+  
+  OK: if( AXE_TRUE == flag )
+  OK: if( NULL == my_pointer )
+  BAD: if( AXE_TRUE )
+  BAD: if( AXE_TRUE == flag ) (optional)
+  BAD: if( my_pointer )
+  BAD: if( ! my_pointer )
+  BAD: if( my_pointer == NULL ) (optional)
+  
+------------------ 
+Auto Documentation
+------------------
+
+We use doxygen (http://doxygen.sf.net) for creation auto-documentation of the 
+source codes in HTML. Because of this we have to comment it with some strict 
+rules (you will see that this is pretty much a javadoc style):
+
+- Documenting functions headers:
+
+/**
+* Brief description
+* Long description that last long some 
+* lines
+*/
+
+- Optional parameters to function headers. Use them only when necessary:
+
+/**
+* Brief description
+* Long description that last long some
+* lines
+* @param first_parameter Explanation of this parameter
+* @param second_parameter Explanation of this parameter
+* @return Explanation of the return value
+* @see other_funtion()
+* @see other_file.cpp
+* @bug this functions have this nasty bug!
+* @todo i'm so lazy that i left this to do
+* @warning if you do #!"%$&$ you will crash the lib!
+* @author your name <your\@email.com>
+* @date DD/MM/YYYY
+
+- File header comments (you can mix optional parameters just explained here):
+
+/**
+* @file
+* Brief comment
+* Long comment that last
+* some lines
+*/
+
+- Commenting variables in line
+
+int i;	/// this is a stupid var
+
+- If you think is necessary to explain better a variable, you can use the form 
+for functions explained above:
+
+/**
+* Brief desc
+* Long desc
+* @warning this is global!
+*/
+_state state;
+
+---------
+GreatCode
+---------
+This tool can help you in some ways:
+
+- For single line comments, use /* $1- Comment */ and GC will add "-" until column 80
+
+Example:
+/* $1- hello */
+... to ...
+/* $1- hello ------------------------------------------------------------------------ */
+
+- In comment lines, use "$R" to align text to the right, and "$C" to center it
+
+Example:
+/**
+* $C hello
+*/
+... to ...
+/**
+* $C 					hello
+*/
+
+---------
+Skeletons
+---------
+
+Use skeletons as way to code in a standard way and to speed up the creation of 
+new classes. Copy them to the directory you want to place the code, and then 
+replace "example_class" for the name of your class.
+
+doc/skeletons/skeleton.cpp.txt		-> Standart skeleton for normal .cpp classes files
+doc/skeletons/skeleton.h.txt		-> Standart skeleton for normal .h classes files
+
+22/11/2003 Ricard Pillosu <doneval@users.sf.net>
+
+$Id: Coding_style.txt,v 1.3 2004/09/24 17:58:38 doneval Exp $

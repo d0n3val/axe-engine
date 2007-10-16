@@ -1,0 +1,97 @@
+========================
+Axe engine component map 
+========================
+
+Rules about AXE components:
+
+- Each component will be assigned one "level", based on how "low-level" or "high-level" is
+
+- Components can only have dependencies on other components of lower level. Level 0 components
+  can't have ANY type of dependency.
+  
+- Each library must be provided as one .dll and .h Only layer 0 libraries are only a bunch of .h files.
+  
+- Memory manager is out of the layer classification.
+
+=========================================================================================================
+COMPONENTS LIST
+=========================================================================================================
+
+GLOBAL DEFINITIONS:		Global definitions like AXE_TRUE
+MEMORY_MANAGER (axmm):	axmm_alloc / axmm_free / axmm_get_mem_stats 
+ 
+-----------------------------------
+Layer 0 components (base API)
+-----------------------------------
+
+CONTAINERS (axct):		To manage linked lists, arrays of data and so.
+STRING (axst):			A way to easily manage and formatting strings
+CALLBACK (axcl):		Templates for callback
+MATH (axmt):			Angles + vector + matrix + quat
+MATH_SSE (axmts):		As math but using SSE optimizations
+ERRORS (axrr):			Error management
+
+-----------------------------------
+Layer 1 components (system API)
+-----------------------------------
+
+WINDOWS (axwd):			All win32 related code (uses callbacks, string)
+LOG (axlg):				Allow controlling multiple logfiles (uses string)
+SYSTEM INFO (axsi):		Detects what hardware and software are in the host machine (uses string)
+FILE_SYSTEM (axvf):		Manages acces to disk (uses string, containers)
+RANDOMIZER (axrd):		Fast random number generator ()
+TIMER (axtm):			Manages date and time ()
+3DS LOADER (ax3s):		Parse 3DS file type data (uses containers, string)
+SCRIPTING (axsc):		Script engine ()
+TEXTURE (axtx):			Animated textures and other effects ()
+IMG PROCESSING (axmp):	Image post-processing for real-time effects ()
+EVENTS (axev):			Core system to application events/messages managment ()
+PRIMITIVES 2D (axp2):	aaquad, oquad, circle, line, triangle, etc (uses math)
+PRIMITIVES 3D (axp3):	aabb, obb, sphere, frustum, plane, triangle, ray, etc. (uses math)
+PLUG-IN (axpl):     Manages plug-in module system via .dll files
+
+RASTER (axrt):			Uses Direct3D to draw to the screen (uses containers)
+INPUT (axip):			Uses DirectInput to map device inputs (uses containers, callbacks)
+SOUND (axsd):			Uses DirectSound/Music to play sounds (uses containers, callbacks)
+NETWORK (axnw):			Uses DirectPlay to map networks devices ()
+VIDEO (axvd):			Video decoding ()
+
+--------------------------------------
+Layer 2 components (support API)
+--------------------------------------
+
+COLLISION (axcl):		Optimized volume collision detection (uses primitives 3d)
+MESH (axmh):			Mesh manipulation (tessel, optimize, consolidation, etc.) (uses primitives 3d)
+PHYSICS (axph):			Rigid solid physics (uses primitives 3d)
+SKELETAL ANIM (axsk):	Skeletal animation ()
+KEYFRAME ANIM (axkf):	Key Frame classic animation ()
+PARTICLE SYS (axps):	Recreate defined particle systems, loaded from 3d Studio or procedural
+USER INTERFACE (axui):	User interface widgets
+USER CONTROL (axco):	Manages INPUT library more precisely, like combos, etc. (uses input)
+RESOURCE MANAGER (axre):Main source to all data files of the engine (uses file_system)	
+
+------------------------------------
+Level 3 components (game API)
+------------------------------------
+
+PATH ENGINE (axpe):	Path search engine like A*
+
+PORTAL RENDER (axpr):	Spatial index with portals
+OCTREE (axct):			Octree spatial index
+QUADTREE (axqt):		Quadtree spatial index
+BSP (axbs):				BSP spatial index
+TERRAIN (axtr):			Manages heighfield data and texture application over terrain.
+CAMERA (axcm):			Manages camera and complex behaviours
+
+Still to define, something like shadows, shaders, water effects, skyboxes, etc...
+
+--------------------------------
+Level 4 components (final build)
+--------------------------------
+
+EDITOR (axed):
+ENGINE (axen):
+
+Ricard Pillosu <doneval@users.sf.net>
+
+$Id: Components.txt,v 1.3 2004/09/24 17:58:38 doneval Exp $

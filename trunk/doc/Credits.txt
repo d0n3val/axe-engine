@@ -1,0 +1,10 @@
+AXE Credits
+-----------
+
+Developers:
+
+Carlos Fuentes <carlos.fuentes@iespana.es>
+Ricard Pillosu <ricard@netlands-project.net>
+
+
+$Id: Credits.txt,v 1.1 2004/05/02 16:32:30 doneval Exp $

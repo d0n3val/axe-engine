@@ -1,0 +1,15 @@
+TODO
+----
+
+- Add "any" and "many" variant classes to layer0
+- Adapt matrix classes to be opengl-column-wise
+- Have events lib use variants
+- Add a simple raster that uses opengl
+- Add a template for a singletono
+- Memory manager in engine
+- blp and m2 lib loaders
+- wxwigdgets in axer_windows
+- log window ... 
+- clase "float" y luego clase "angulo" y luego euler_anlges"
+
+$Id$
