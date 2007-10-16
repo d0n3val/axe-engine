@@ -1,0 +1,20 @@
+/**
+@page page1 ChangeLog
+
+18 Sep 2004 Ricard Pillosu <d0n3val\@gmail.com> :
+Inlined cast to const char
+changed default size to 64
+Now uses _vsnprintf for improved security
+
+03/04/2004 Ricard Pillosu <d0n3val\@gmail.com> :
+Erased all error code, now this lib is a 'layer 0' one
+
+28/03/2004 Ricard Pillosu <d0n3val\@gmail.com> :
+Now the lib use C++ interface instead of C one
+
+24/11/2003 Ricard Pillosu <d0n3val\@gmail.com> :
+First creating of the lib
+
+*/
+
+/* $Id: changelog.txt,v 1.2 2004/09/20 21:28:08 doneval Exp $ */

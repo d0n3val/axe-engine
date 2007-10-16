@@ -1,0 +1,17 @@
+; AXE libs types >>>>=====================================================>>>>
+
+  ; axe math -----------------------
+  axmt_vector2i =<x,i>,<y,i>
+  axmt_vector2 =<x,g>,<y,g>
+  axmt_vector3 =<x,g>,<y,g>,<z,g>
+  axmt_vector4 =<x,g>,<y,g>,<z,g> w=<w,g>
+  axmt_euler_angles =Roll=<roll,g> Pitch=<pitch,g> Yaw=<yaw,g>
+  axmt_matrix_3x3 =Diagonal=<d00,g>,<d11,g>,<d22,g>
+  axmt_matrix_4x3 =Pos=<d30,g>,<d31,g>,<d32,g> Diagonal=<d00,g>,<d11,g>,<d22,g>
+  axmt_matrix_4x4 =Pos=<d30,g>,<d31,g>,<d32,g> Diagonal=<d00,g>,<d11,g>,<d22,g>
+  axmt_quaternion =<x,g>,<y,g>,<z,g> w=<w,g>
+  
+  ; axe string ---------------------
+  axst_string =<string,s>
+
+; AXE libs types <<<<====================================================<<<<

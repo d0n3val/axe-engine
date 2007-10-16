@@ -1,0 +1,12 @@
+/**
+@page page1 ChangeLog
+
+09 Jun 2004 Ricard Pillosu <d0n3val\@gmail.com>
+Now input events are ordered as they ocurred exactly in time
+
+18/05/2004 Ricard Pillosu <d0n3val\@gmail.com>
+First creating of the lib
+
+*/
+
+/* $Id: changelog.txt,v 1.2 2004/06/11 20:14:28 doneval Exp $ */

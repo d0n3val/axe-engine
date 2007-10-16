@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="8,00"
+	Name="__Layer ========= Global ="
+	ProjectGUID="{42BB6571-6B8A-4735-8DD6-0550632D3658}"
+	RootNamespace="========= Axe Global ="
+	Keyword="Win32Proj"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="10"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="xcopy src\axe_*.h ..\..\include\."
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="xcopy src\axe_*.h ..\..\include\."
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="10"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="xcopy src\axe_*.h ..\..\include\."
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="xcopy src\axe_*.h ..\..\include\."
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="definitions"
+			>
+			<File
+				RelativePath=".\axe_assert.h"
+				>
+			</File>
+			<File
+				RelativePath=".\axe_defs.h"
+				>
+			</File>
+			<Filter
+				Name="internal"
+				>
+				<File
+					RelativePath=".\axe_errors.h"
+					>
+				</File>
+				<File
+					RelativePath=".\axe_internal_defs.h"
+					>
+				</File>
+				<File
+					RelativePath=".\axe_state.h"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="memory manager"
+			>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

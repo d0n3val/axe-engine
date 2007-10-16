@@ -1,0 +1,9 @@
+/**
+@page page1 ChangeLog
+
+21/11/2003 Ricard Pillosu <doneval@users.sf.net>
+First creating of the lib
+
+*/
+
+/* $Id: changelog.txt,v 1.1 2004/06/09 18:23:57 doneval Exp $ */
