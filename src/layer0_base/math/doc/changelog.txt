@@ -1,0 +1,15 @@
+/**
+@page page1 ChangeLog
+
+12/07/2004 Ricard Pillosu <d0n3val\@gmail.com> :
+Added DX9 cast operators, and "distance_pow2_to" method to axe_vector*
+
+03/04/2004 Ricard Pillosu <d0n3val\@gmail.com> :
+Erased all error code, now this lib is a 'layer 0' one
+
+04/12/2003 Ricard Pillosu <d0n3val\@gmail.com> :
+First creating of the lib
+
+*/
+
+/* $Id: changelog.txt,v 1.2 2004/07/21 22:08:51 doneval Exp $ */

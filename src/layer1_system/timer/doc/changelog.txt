@@ -1,0 +1,12 @@
+/**
+@page page1 ChangeLog
+
+02/01/2004 Ricard Pillosu <d0n3val\@gmail.com> axe_timer.h, axtm_timer.h, axtm_manage.h:
+Added "ticks" functions in order to allow asking for elapsed CPU ticks instead of seconds
+
+19/12/2003 Ricard Pillosu <d0n3val\@gmail.com>
+First creating of the lib
+
+*/
+
+/* $Id: changelog.txt,v 1.1 2004/05/02 16:32:32 doneval Exp $ */

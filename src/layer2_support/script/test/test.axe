@@ -1,0 +1,13 @@
+// Test script
+
+int main(int a, int b, int c) 
+{
+	var = var + 12;
+	print_text(var);
+	
+	test.some_method(20);
+	test.a += 3;
+	print_text(test.a);
+	
+	return a + b + c;
+}

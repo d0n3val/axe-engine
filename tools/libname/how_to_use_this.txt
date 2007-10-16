@@ -1,0 +1,92 @@
+How to use his skeleton project
+-------------------------------
+
+This list can seem to large and tedious, but belive me, it's only 3 minutes
+and will save some valuable time and hadaches! Follow this steps:
+
+- Decide a new name for your lib. This must be as short as you can, but still
+  descriptive.
+  
+  	* example: we decide to create a library to paint things on the screen
+  	... we decide to name it "raster"
+  	
+- Decide a 2 letter code for your new library. Remember that it must be
+  different from all other axe libraries.
+  
+  	*example: for our new "raster" library we decide to use "rt" letters.
+  	It means that all files and funstions will be prefixed with a "axrt_"
+  	code that means "Axe raster"
+
+- Create a copy of "libname" directory
+
+- Rename it to the new library name 
+	
+	* example: "raster"
+
+- Rename "axe_libname.vcproj" and "axe_libname_test.vcproj" to new lib name
+	
+	* example: "raster.vcproj" and "raster_test.vcproj"
+
+- Enter both files with a plain editor (like notepad or ultraedit) and replace 
+  all words "libname" for the new lib name. Replace "axxx" for your new 4
+  letter lib code:
+  	
+  	*example: replace "libname" for "raster" and "axxx" for "axrt" in
+  	both "axe_raster.vcproj" and "axe_raster_test.vcproj"
+
+- Go to visual studio/common7/tools directory in your pc, execute the tool "guidgen.exe" and generate a new 
+registry format guid. In the vcproj files, replace ProjectGUID with new genrated  guids.
+ 
+- Now enter "(libname)/src" and "test" directory and rename all files with their 
+new names.
+
+	*example: 	axe_libname.h	-> axe_raster.h
+			axxx_state.h	-> axrt_state.cpp
+			axxx_stdafx.h	-> axrt_stdafx.h
+			axxx_libname.cpp-> axrt_raster.h
+			axxx_libname.h	-> axrt_raster.h
+			test/axxx_test.cpp -> test/axrt_test.cpp
+			test/axxx_test.h   -> test/axrt_test.h
+			
+- Now open MSCV, and load the new projects (in your current solution or a new
+  one)
+  
+- Now select from "Edit" menu "replace -> replace in files" option
+
+- Check the option "Match Case"
+
+- Now select to replace "libname" (11 matches) for your new lib name. Do the 
+  same with "LIBNAME" (11), "axxx" (19) and "AXXX" (14). Remember that you have
+  to do this in both projects "axe_libname" and "axe_libname_test".
+  
+- Right click yout "test" project and select option "Generation order". Check
+  that the library is generated before the test. This is not necessary but
+  can eliminate some stupid errors because of compilation order.
+  
+- Go to doxygen.cfg and change "Libname" in line 6 for your new lib name
+
+- Now go to docs/readme.txt and put there an explanation about your new library
+  Note that this files are in "doxygen" style, but how to use them are obvious.
+
+- Go to the "changelog.txt" and to the same, replace the example line with real
+  data. This also have doxygen format.
+  
+- Go to "axe_<libname>.h" and re-write the header of the file with proper data
+	*example:
+	/**
+	* @file
+	* Axe 'string' library PUBLIC include header
+	* @author	Ricard Pillosu <doneval\@users.sf.net>
+	* @version	0.1a
+	* @date		24/11/2003
+	*/
+    
+- Only to make sure all is OK, compile and run the new projects.
+
+- Delete this file from the newly created directory!
+
+- Start coding your new Axe library! Wellcome to the Axe community ;)
+
+- I suggest you to start writing how your interface will look in axe_<libname>.h
+
+22/11/2003 Ricard Pillosu <ricard@netlands-project.net>

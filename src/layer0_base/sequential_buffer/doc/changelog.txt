@@ -1,0 +1,15 @@
+/**
+@page page1 ChangeLog
+
+03/04/2004 Ricard Pillosu <d0n3val\@gmail.com> :
+Erased all error code, now this lib is a 'layer 0' one
+
+28/03/2004 Ricard Pillosu <d0n3val\@gmail.com> :
+Now the lib use C++ interface instead of C one
+
+24/11/2003 Ricard Pillosu <d0n3val\@gmail.com> :
+First creating of the lib
+
+*/
+
+/* $Id: changelog.txt,v 1.1 2004/08/22 21:08:59 ilgenio Exp $ */
