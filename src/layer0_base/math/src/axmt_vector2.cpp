@@ -6,13 +6,15 @@
 
 // -----------------------------------------------------------------
 // Creators --------------------------------------------------------
-axe_vector2 &axe_vector2::create( const float& _x, const float& _y ) {
+axe_vector2& axe_vector2::create( const float& _x, const float& _y )
+{
   x = _x;
   y = _y;
   return( *this );
 }
 
-axe_vector2 &axe_vector2::create( const axe_vector2& v ) {
+axe_vector2& axe_vector2::create( const axe_vector2& v )
+{
   x = v.x;
   y = v.y;
   return( *this );
@@ -59,13 +61,14 @@ axe_vector2::operator D3DXVECTOR2() const
   return( t );
 }
 
-axe_vector2::operator D3DXVECTOR2*  () {
+axe_vector2::operator D3DXVECTOR2 * ()
+{
   return( (D3DXVECTOR2*) ptr );
 }
 
-axe_vector2::operator const D3DXVECTOR2*  () const
+axe_vector2::operator const D3DXVECTOR2 * () const
 {
-  return( (CONST D3DXVECTOR2*) ptr );
+  return( (CONST D3DXVECTOR2 *) ptr );
 }
 
 // -----------------------------------------------------------------
@@ -117,25 +120,29 @@ axe_vector2 axe_vector2::operator/( const float& a ) const
   return( t );
 }
 
-axe_vector2 &axe_vector2::operator+=( const axe_vector2& v ) {
+axe_vector2 &axe_vector2::operator+=( const axe_vector2& v )
+{
   x += v.x;
   y += v.y;
   return( *this );
 }
 
-axe_vector2 &axe_vector2::operator-=( const axe_vector2& v ) {
+axe_vector2 &axe_vector2::operator-=( const axe_vector2& v )
+{
   x -= v.x;
   y -= v.y;
   return( *this );
 }
 
-axe_vector2 &axe_vector2::operator*=( const float& a ) {
+axe_vector2 &axe_vector2::operator*=( const float& a )
+{
   x *= a;
   y *= a;
   return( *this );
 }
 
-axe_vector2 &axe_vector2::operator/=( const float& a ) {
+axe_vector2 &axe_vector2::operator/=( const float& a )
+{
   float f = 1.0f / a;
   x *= f;
   y *= f;
@@ -174,20 +181,24 @@ bool axe_vector2::operator<=( const axe_vector2& v ) const
 
 // -----------------------------------------------------------------
 // Other methods ---------------------------------------------------
-void axe_vector2::zero() {
+void axe_vector2::zero()
+{
   x = y = 0.0f;
 }
 
-void axe_vector2::normalize() {
+void axe_vector2::normalize()
+{
   float m = x * x + y * y;
-  if( m > 0.0f ) {
+  if( m > 0.0f )
+  {
     float inv_m = 1 / sqrtf( m ); /// this can be very hardware optimized
     x *= inv_m;
     y *= inv_m;
   }
 }
 
-void axe_vector2::negate() {
+void axe_vector2::negate()
+{
   x = -x;
   y = -y;
 }
@@ -203,21 +214,18 @@ float axe_vector2::module() const
 float axe_vector2::module_approx() const
 {
   float min;
-
   float max;
-
   float approx;
+  float dx = ( x < 0 ) ? -x : x;
+  float dy = ( y < 0 ) ? -y : y;
 
-  float dx;
-
-  float dy;
-  ( x < 0 ) ? dx = -x : dx = x;
-  ( y < 0 ) ? dy = -y : dy = y;
-
-  if( dx < dy ) {
+  if( dx < dy )
+  {
     min = dx;
     max = dy;
-  } else {
+  }
+  else
+  {
     min = dy;
     max = dx;
   }
@@ -225,7 +233,8 @@ float axe_vector2::module_approx() const
   approx = ( max * 1007 ) + ( min * 441 );
 
   //	if (max < ( min << 4 )) {
-  if( max < (min * 16) ) {
+  if( max < (min * 16) )
+  {
     approx -= ( max * 40 );
   }
 
@@ -264,11 +273,13 @@ float axe_vector2::distance_man_to( const axe_vector2& v ) const
 axe_vector2 axe_vector2::lerp( const axe_vector2& v, const float& factor ) const
 {
   // check ranges
-  if( factor <= 0.0f ) {
+  if( factor <= 0.0f )
+  {
     return( *this );
   }
 
-  if( factor >= 1.0f ) {
+  if( factor >= 1.0f )
+  {
     return( v );
   }
 
