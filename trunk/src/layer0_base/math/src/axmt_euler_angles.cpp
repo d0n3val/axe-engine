@@ -6,14 +6,16 @@
 
 // -----------------------------------------------------------------
 // Creators --------------------------------------------------------
-axe_euler_angles &axe_euler_angles::create( const float& _yaw, const float& _pitch, const float& _roll ) {
+axe_euler_angles &axe_euler_angles::create( const float& _yaw, const float& _pitch, const float& _roll )
+{
   yaw = _yaw;
   pitch = _pitch;
   roll = _roll;
   return( *this );
 }
 
-axe_euler_angles &axe_euler_angles::create( const axe_euler_angles& e ) {
+axe_euler_angles &axe_euler_angles::create( const axe_euler_angles& e )
+{
   yaw = e.yaw;
   pitch = e.pitch;
   roll = e.roll;
@@ -118,7 +120,8 @@ axe_euler_angles axe_euler_angles::operator-( const axe_euler_angles& e ) const
   return( t );
 }
 
-axe_euler_angles &axe_euler_angles::operator+=( const axe_euler_angles& e ) {
+axe_euler_angles &axe_euler_angles::operator+=( const axe_euler_angles& e )
+{
   yaw += e.yaw;
   pitch += e.pitch;
   roll += e.roll;
@@ -126,7 +129,8 @@ axe_euler_angles &axe_euler_angles::operator+=( const axe_euler_angles& e ) {
   return( *this );
 }
 
-axe_euler_angles &axe_euler_angles::operator-=( const axe_euler_angles& e ) {
+axe_euler_angles &axe_euler_angles::operator-=( const axe_euler_angles& e )
+{
   yaw -= e.yaw;
   pitch -= e.pitch;
   roll -= e.roll;
@@ -146,7 +150,8 @@ bool axe_euler_angles::operator!=( const axe_euler_angles& e ) const
 
 // -----------------------------------------------------------------
 // Other methods ---------------------------------------------------
-void axe_euler_angles::set_identity() {
+void axe_euler_angles::set_identity()
+{
   yaw = pitch = roll = 0.0f;
 }
 
@@ -155,35 +160,39 @@ bool axe_euler_angles::is_identity() const
   return( yaw == 0.0f && pitch == 0.0f && yaw == 0.0f );
 }
 
-void axe_euler_angles::canonize() {
-
+void axe_euler_angles::canonize()
+{
   // wrap pitch
-  pitch = axmt_wrap_pi( pitch );
+  pitch = axe_angle( pitch );
 
   // check limits (-pi/2 ... pi/2)
-  if( pitch < -HALF_PI ) {
+  if( pitch < -HALF_PI )
+  {
     pitch = -PI - pitch;
     yaw += PI;
     roll += PI;
-  } else if( pitch > HALF_PI ) {
+  }
+  else if( pitch > HALF_PI )
+  {
     pitch = PI - pitch;
     yaw += PI;
     roll += PI;
   }
 
   // check gimbal lock case
-  if( fabsf(pitch) > (HALF_PI - 0.00001f) ) {
-
+  if( fabsf(pitch) > (HALF_PI - 0.00001f) )
+  {
     // we are in gimbal
     yaw += roll;
     roll = 0.0f;
-  } else {
-
+  }
+  else
+  {
     // not in gimbal
-    roll = axmt_wrap_pi( roll );
+    roll = axe_angle( roll );
   }
 
-  yaw = axmt_wrap_pi( yaw );
+  yaw = axe_angle( yaw );
 }
 
 void axe_euler_angles::rotate( axe_vector3& v ) const

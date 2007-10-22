@@ -4,10 +4,6 @@
 */
 #include "axmt_stdafx.h"
 
-float axmt_inv( const float& a ) {
-  return( 1 / a );
-}
-
 float axmt_wrap_pi( const float& angle ) {
   float a = angle;
 

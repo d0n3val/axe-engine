@@ -80,12 +80,22 @@ float floorf(float)
 double floord(double)
 
 */
+enum axmt_side
+{
+  AXMT_INVALID= 0,
+  AXMT_FRONT,
+  AXMT_BEHIND,
+  AXMT_LEFT,
+  AXMT_RIGHT,
+  AXMT_COUNT
+};
 
 /*$1- Useful math constants --------------------------------------------------*/
 static const float  EPSILON = 0.0001f;
 static const float  INFINITY = 3.4e38f;
 static const float  PI = 3.14159265358979323846f;
 static const float  TWO_PI = 6.28318530717958647692f;
+static const float  QUAD_PI = 9.86960440108935861883f;
 static const float  HALF_PI = 1.57079632679489661923f;
 static const float  QUARTER_PI = 0.78539816339744830961f;
 static const float  INV_PI = 0.31830988618379067154f;
@@ -93,11 +103,9 @@ static const float  INV_TWO_PI = 0.15915494309189533576f;
 static const float  DEG_TO_RAD = 0.01745329251994329577f;
 static const float  RAD_TO_DEG = 57.2957795130823208768f;
 
-/*$1- Util spoare functions --------------------------------------------------*/
-float axmt_inv( const float& a );
-float axmt_wrap_pi( const float& angle );
-
-/*$1-  This libs are an exception, and uses C++ classes ----------------------*/
+/*$1-  This uses C++ classes -------------------------------------------------*/
+struct axe_float;
+struct axe_angle;
 union axe_vector2i;
 union axe_vector2;
 union axe_vector3;
@@ -109,10 +117,108 @@ union axe_matrix_4x4;
 union axe_quaternion;
 
 /**
+* Simplify float operations
+* @check axmt_float.cpp
+*/
+struct AXMT_API axe_float
+{
+  float f;
+
+  /*$1- Creators -------------------------------------------------------------*/
+  axe_float (const float&f);
+
+  /*$1- Cast -----------------------------------------------------------------*/
+  operator int() const;
+  operator float() const;
+
+  /*$1- Math operations ------------------------------------------------------*/
+  bool operator ==( const axe_float& v ) const;
+  bool operator !=( const axe_float& v ) const;
+  bool operator >=( const axe_float& v ) const;
+  bool operator <=( const axe_float& v ) const;
+
+  /*$1- Others ---------------------------------------------------------------*/
+  axe_float set_infinity();
+  axe_float inverse() const;
+  axe_float sin() const;
+  axe_float cos() const;
+  axe_float tan() const;
+  axe_float asin() const;
+  axe_float acos() const;
+  axe_float atan() const;
+  axe_float floor() const;
+  axe_float set_max( axe_float& v );
+  axe_float set_min( axe_float& v );
+  axe_float cap( axe_float& min, axe_float& max );
+};
+
+/**
+* Angle class: 0 Rad is (1,0) +pi/2 is (0,1) -pi/s is (0,-1) and +-pi is (-1,0)
+*/
+struct AXMT_API axe_angle
+{
+  axe_float radians;
+
+  /*$1- Creators -------------------------------------------------------------*/
+  axe_angle (const float&rad);
+  axe_angle (const axe_angle&ang);
+  axe_angle&  create_deg( const float& degrees );
+  axe_angle&  create( const axe_vector2i& vector2 );
+  axe_angle&  create( const axe_vector2& vector2 );
+
+  /*$1- Cast -----------------------------------------------------------------*/
+  operator float() const;
+  operator axe_vector2i() const;
+  operator axe_vector2() const;
+  operator axe_vector3() const;
+  operator axe_vector4() const;
+
+  /*$1- Math operations ------------------------------------------------------*/
+  axe_angle operator  -() const;
+
+  axe_angle operator  +( const axe_angle& angle ) const;
+  axe_angle operator  -( const axe_angle& angle ) const;
+
+  axe_angle operator* ( const float& a ) const;
+  axe_angle operator/( const float& a ) const;
+
+  axe_angle &operator+=( const axe_angle& angle );
+  axe_angle &operator-=( const axe_angle& angle );
+
+  axe_angle &operator/=( const float& a );
+  axe_angle &operator*=( const float& a );
+
+  bool operator==( const axe_angle& angle ) const;
+  bool operator!=( const axe_angle& angle ) const;
+
+  bool operator < (const axe_angle&angle) const;
+  bool operator >( const axe_angle& angle ) const;
+  bool operator >=( const axe_angle& angle ) const;
+  bool operator <=( const axe_angle& angle ) const;
+
+  /*$1- Others ---------------------------------------------------------------*/
+  void      zero();
+  float     wrap_pi();
+  float     get_deg() const;
+  axe_angle get_left_perpendicular() const;
+  axe_angle get_right_perpendicular() const;
+  axe_angle get_opposite() const;
+  int       is_in_front( const axe_angle& angle, float aperture ) const;
+  int       is_behind( const axe_angle& angle, float aperture ) const;
+  int       is_on_the_left( const axe_angle& angle, float aperture = PI ) const;
+  int       is_on_the_right( const axe_angle& angle, float aperture = PI ) const;
+  axmt_side find_side( const axe_angle& angle, float aperture ) const;
+
+  // Argument order is important
+  int       is_between( const axe_angle& angle1, const axe_angle& angle2 ) const;
+  axe_angle distance_to( const axe_angle& angle ) const;
+};
+
+/**
 * Simple vector 2d (x,y) class but with integer data
 * @check axmt_vector2i.cpp
 */
-union AXMT_API axe_vector2i
+union AXMT_API  axe_vector2i
 {
   struct
   {
