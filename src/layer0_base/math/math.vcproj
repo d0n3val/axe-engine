@@ -194,7 +194,15 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm"
 			>
 			<File
+				RelativePath=".\src\axmt_angle.cpp"
+				>
+			</File>
+			<File
 				RelativePath="src\axmt_euler_angles.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\axmt_float.cpp"
 				>
 			</File>
 			<File

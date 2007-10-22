@@ -8,7 +8,7 @@ TODO
 - Add a template for a singletono
 - Memory manager in engine
 - blp and m2 lib loaders
-- wxwigdgets in axer_windows
+- wxwigdgets in axe_windows
 - log window ... 
 - clase "float" y luego clase "angulo" y luego euler_anlges"
 
