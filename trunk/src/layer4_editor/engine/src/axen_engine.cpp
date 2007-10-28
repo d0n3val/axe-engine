@@ -249,24 +249,9 @@ void axen_engine::check_keys()
   mopengl->use_matrix(m);
   //mopengl->draw_axis(10);
   mopengl->stop_matrix();
-  
 
   //mopengl->draw_matrix(virtual_camera);
   mopengl->camera.create(virtual_camera);
-
-  /*// --
-  axe_string  s;
-  s.create( "%0.3f %0.3f %0.3f %0.3f", virtual_camera.d00, virtual_camera.d10, virtual_camera.d20, virtual_camera.d30);
-  mopengl->print_console( s );
-  s.create( "%0.3f %0.3f %0.3f %0.3f", virtual_camera.d01, virtual_camera.d11, virtual_camera.d21, virtual_camera.d31);
-  mopengl->print_console( s );
-  s.create( "%0.3f %0.3f %0.3f %0.3f", virtual_camera.d02, virtual_camera.d12, virtual_camera.d22, virtual_camera.d32);
-  mopengl->print_console( s );
-  s.create( "%0.3f %0.3f %0.3f %0.3f", virtual_camera.d03, virtual_camera.d13, virtual_camera.d23, virtual_camera.d33);
-  mopengl->print_console( s );
-  s.create( "x:%f y:%f z:%f pitch:%f yawn:%f", x,y,z,cam.pitch,cam.yaw);
-  mopengl->print_console( s );
-  */
 }
 
 void axen_engine::load_model()
@@ -277,16 +262,8 @@ void axen_engine::load_model()
   char const * pData = (const char*)axfs_get_data(id_file);
   memcpy(&header, pData, sizeof(ModelHeader));
 
-  
-  /*int *globalSequences;
-
-  if (header.nGlobalSequences) {
-    globalSequences = new int[header.nGlobalSequences];
-    memcpy(globalSequences, (pData + header.ofsGlobalSequences), header.nGlobalSequences * 4);
-  }
-  */
-
-  origVertices = (ModelVertex*)(pData + header.ofsVertices);
+  origVertices = new ModelVertex[header.nVertices];
+  memcpy(origVertices, pData + header.ofsVertices, header.nVertices * sizeof(ModelVertex));
   vertices = new axe_vector3[header.nVertices];
 
   for (size_t i=0; i<header.nVertices; i++) {
@@ -320,19 +297,39 @@ void axen_engine::load_model()
 		pass.vertexEnd = pass.vertexStart + ops[geoset].vcount;
 	}
 
+  // textures
+  ModelTextureDef *texdef = (ModelTextureDef*)(pData + header.ofsTextures);
+  if (header.nTextures) {
+    textures = new GLuint[header.nTextures];
+    for (size_t i=0; i<header.nTextures; i++) {
+      char texname[256];
+      if (texdef[i].type == 0) {
+        strncpy(texname, (const char*)pData + texdef[i].nameOfs, texdef[i].nameLen);
+        texname[texdef[i].nameLen] = 0;
+        axe_string path(texname);
+        //textures[i] = texturemanager.add(texname);
+      } else {
+        // special texture - only on characters and such...
+        textures[i] = 0;
+      }
+    }
+  }
+
 }
 
 void axen_engine::draw_model()
 {
   glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-  glBegin(GL_TRIANGLES);
-	for (size_t k = 0, b=pass.indexStart; k<pass.indexCount; k++,b++) {
-		uint16 a = indices[b];
-	  //glVertex3fv(vertices[a].ptr);
-		glVertex3f(vertices[a].x, vertices[a].y, vertices[a].z);
-	}
-	glEnd();
+  // Enable vertex array
+  glEnableClientState(GL_VERTEX_ARRAY);
+  glVertexPointer(3, GL_FLOAT, 0, vertices);
+
+  // Draw it
+  glDrawElements(GL_TRIANGLES, pass.indexCount, GL_UNSIGNED_SHORT, indices + pass.indexStart); 
+
+  // Disable vertex array
+  glDisableClientState(GL_VERTEX_ARRAY);
 }
 
 

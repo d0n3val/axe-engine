@@ -10,6 +10,5 @@ TODO
 - blp and m2 lib loaders
 - wxwigdgets in axe_windows
 - log window ... 
-- clase "float" y luego clase "angulo" y luego euler_anlges"
 
 $Id$
