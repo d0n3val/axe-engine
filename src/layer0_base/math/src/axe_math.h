@@ -280,7 +280,7 @@ union AXMT_API  axe_vector2
   {
     float x, y;
   };
-  __declspec( align(16) )
+  //__declspec( align(16) )
   float ptr[2];
 
   /*$1- Creators -------------------------------------------------------------*/
@@ -343,7 +343,7 @@ union AXMT_API  axe_vector3
   {
     float x, y, z;
   };
-  __declspec( align(16) )
+  //__declspec( align(16) )
   float ptr[3];
 
   /*$1- Creators -------------------------------------------------------------*/

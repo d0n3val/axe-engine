@@ -188,7 +188,7 @@ float axe_angle::wrap_pi()
 
 float axe_angle::get_deg() const
 {
-  return( radians.f + RAD_TO_DEG );
+  return( radians.f * RAD_TO_DEG );
 }
 
 axe_angle axe_angle::get_left_perpendicular() const
