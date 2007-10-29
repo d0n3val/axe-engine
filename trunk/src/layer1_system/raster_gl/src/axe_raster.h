@@ -58,12 +58,13 @@ extern "C"
   AXRT_API int  axrt_set_view( float look[3], float pos[3], float up[3] );
   AXRT_API int  axrt_prepare_to_draw();
   AXRT_API int  axrt_draw();
-  AXRT_API int  axrt_set_wireframe(int wireframe);
+  AXRT_API int  axrt_set_wireframe( int wireframe );
 
-  /*$1- axrt_debug_geoms.cpp -------------------------------------------------------*/
-  AXRT_API int  axrt_draw_axis(float size);
+  /*$1- axrt_debug_geoms.cpp -------------------------------------------------*/
+  AXRT_API int  axrt_draw_axis( float size );
 
-
+  /*$1- axrt_texture.cpp -----------------------------------------------------*/
+  AXRT_API AXE_ID axrt_load_texture( const char* file_name );
 } // extern "C"
 #endif // __AXE_RASTER_H__
 

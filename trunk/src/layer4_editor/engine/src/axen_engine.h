@@ -93,8 +93,9 @@ class axen_engine
     uint16*           indices;
     ModelRenderPass   pass;
     axe_vector3*      vertices;
+    axe_vector2*      text_coords;
     unsigned int*     textures;
-
+    AXE_ID            tex_id;
     AXE_ID            id_file;
 };
 #endif // __AXEN_ENGINE_H__

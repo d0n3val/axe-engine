@@ -2,9 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8,00"
-	Name="113 Raster gl"
-	ProjectGUID="{BB8FAF4A-7C06-4B6B-A7AE-00BC95B6D883}"
-	RootNamespace="113 Raster GL"
+	Name="test"
+	ProjectGUID="{F2B666A1-BC4A-40bc-9B23-98C109DD16C5}"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -19,7 +18,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="debug"
 			IntermediateDirectory="debug"
-			ConfigurationType="2"
+			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="2"
 			>
@@ -41,17 +40,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\global; ..\..\include"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL"
+				AdditionalIncludeDirectories="../../../global;../../../include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
-				ExceptionHandling="0"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
-				RuntimeTypeInfo="false"
+				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="axrt_stdafx.h"
-				WarningLevel="4"
-				Detect64BitPortabilityProblems="false"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -65,13 +61,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../../output_debug/axe_raster.dll"
+				OutputFile="test.exe"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="../../output_debug/lib/"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
-				SubSystem="2"
-				ImportLibrary="../../output_debug/lib/axe_raster.lib"
+				SubSystem="1"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -97,14 +91,13 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="release"
 			IntermediateDirectory="release"
-			ConfigurationType="2"
+			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="2"
 			>
@@ -128,15 +121,12 @@
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
-				AdditionalIncludeDirectories="..\..\global; ..\..\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL"
+				AdditionalIncludeDirectories="../../../global;../../../include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				StringPooling="true"
-				ExceptionHandling="0"
-				RuntimeLibrary="2"
+				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
-				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="axrt_stdafx.h"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -152,14 +142,12 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../../output_release/axe_raster.dll"
+				OutputFile="test.exe"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../output_release/lib/"
 				GenerateDebugInformation="true"
-				SubSystem="2"
+				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="../../output_release/lib/axe_raster.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -185,84 +173,20 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 	</Configurations>
 	<References>
 	</References>
 	<Files>
-		<Filter
-			Name="source"
-			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm"
+		<File
+			RelativePath=".\axm2_test.cpp"
 			>
-			<File
-				RelativePath=".\src\axrt_debug_geoms.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_fonts.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_init.cpp"
-				>
-			</File>
-			<File
-				RelativePath="src\axrt_raster.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_texture.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_world.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="header"
-			Filter="h;hpp;hxx;hm;inl;inc"
+		</File>
+		<File
+			RelativePath=".\axm2_test.h"
 			>
-			<File
-				RelativePath="src\axe_raster.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_raster.h"
-				>
-			</File>
-			<File
-				RelativePath="src\axrt_state.h"
-				>
-			</File>
-			<File
-				RelativePath="src\axrt_stdafx.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="docs"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;txt:doc"
-			>
-			<File
-				RelativePath="doc\changelog.txt"
-				>
-			</File>
-			<File
-				RelativePath="doc\readme.txt"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="SOIL"
-			>
-			<File
-				RelativePath=".\src\soil\SOIL.h"
-				>
-			</File>
-		</Filter>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
