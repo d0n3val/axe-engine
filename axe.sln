@@ -116,6 +116,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "400 Engine", "src\layer4_ed
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "113 Raster gl", "src\layer1_system\raster_gl\raster.vcproj", "{BB8FAF4A-7C06-4B6B-A7AE-00BC95B6D883}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "114 M2 loader", "src\layer1_system\m2_loader\m2_loader.vcproj", "{0EE6BE11-8339-49F0-9335-25796279FE67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -214,6 +216,10 @@ Global
 		{BB8FAF4A-7C06-4B6B-A7AE-00BC95B6D883}.Debug|Win32.Build.0 = Debug|Win32
 		{BB8FAF4A-7C06-4B6B-A7AE-00BC95B6D883}.Release|Win32.ActiveCfg = Release|Win32
 		{BB8FAF4A-7C06-4B6B-A7AE-00BC95B6D883}.Release|Win32.Build.0 = Release|Win32
+		{0EE6BE11-8339-49F0-9335-25796279FE67}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0EE6BE11-8339-49F0-9335-25796279FE67}.Debug|Win32.Build.0 = Debug|Win32
+		{0EE6BE11-8339-49F0-9335-25796279FE67}.Release|Win32.ActiveCfg = Release|Win32
+		{0EE6BE11-8339-49F0-9335-25796279FE67}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

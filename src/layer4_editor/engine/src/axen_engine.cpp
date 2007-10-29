@@ -265,9 +265,14 @@ void axen_engine::load_model()
   origVertices = new ModelVertex[header.nVertices];
   memcpy(origVertices, pData + header.ofsVertices, header.nVertices * sizeof(ModelVertex));
   vertices = new axe_vector3[header.nVertices];
+  text_coords = new axe_vector2[header.nVertices];
 
   for (size_t i=0; i<header.nVertices; i++) {
     vertices[i] = origVertices[i].pos;
+  }
+
+  for (size_t i=0; i<header.nVertices; i++) {
+    text_coords[i] = origVertices[i].texcoords;
   }
 
   // indices - allocate space, too
@@ -315,21 +320,34 @@ void axen_engine::load_model()
     }
   }
 
+  tex_id = mopengl->load_texture("..\\..\\..\\data\\xyz.png");
+
 }
 
 void axen_engine::draw_model()
 {
-  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+  //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+  //	enable texturing
+  glEnable( GL_TEXTURE_2D );
+  //  bind an OpenGL texture ID
+  glBindTexture( GL_TEXTURE_2D, (GLuint) tex_id );
 
   // Enable vertex array
   glEnableClientState(GL_VERTEX_ARRAY);
   glVertexPointer(3, GL_FLOAT, 0, vertices);
 
+  // Enable vertex array
+  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+  glTexCoordPointer(2, GL_FLOAT, 0, text_coords);
+
   // Draw it
   glDrawElements(GL_TRIANGLES, pass.indexCount, GL_UNSIGNED_SHORT, indices + pass.indexStart); 
 
   // Disable vertex array
+  glDisableClientState(GL_TEXTURE_COORD_ARRAY);
   glDisableClientState(GL_VERTEX_ARRAY);
+  glDisable( GL_TEXTURE_2D );
 }
 
 

@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8,00"
-	Name="113 Raster gl"
-	ProjectGUID="{BB8FAF4A-7C06-4B6B-A7AE-00BC95B6D883}"
-	RootNamespace="113 Raster GL"
+	Name="114 M2 loader"
+	ProjectGUID="{0EE6BE11-8339-49F0-9335-25796279FE67}"
+	RootNamespace="113 m2_loader GL"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -49,7 +49,7 @@
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="axrt_stdafx.h"
+				PrecompiledHeaderThrough="axm2_stdafx.h"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="4"
@@ -65,13 +65,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../../output_debug/axe_raster.dll"
+				OutputFile="../../output_debug/axe_m2_loader.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../output_debug/lib/"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
 				SubSystem="2"
-				ImportLibrary="../../output_debug/lib/axe_raster.lib"
+				ImportLibrary="../../output_debug/lib/axe_m2_loader.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -97,7 +97,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 		<Configuration
@@ -136,7 +135,7 @@
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="axrt_stdafx.h"
+				PrecompiledHeaderThrough="axm2_stdafx.h"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -152,14 +151,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../../output_release/axe_raster.dll"
+				OutputFile="../../output_release/axe_m2_loader.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../output_release/lib/"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="../../output_release/lib/axe_raster.lib"
+				ImportLibrary="../../output_release/lib/axe_m2_loader.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -185,7 +184,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 	</Configurations>
@@ -197,27 +195,7 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm"
 			>
 			<File
-				RelativePath=".\src\axrt_debug_geoms.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_fonts.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_init.cpp"
-				>
-			</File>
-			<File
-				RelativePath="src\axrt_raster.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_texture.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axrt_world.cpp"
+				RelativePath="src\axm2_m2_loader.cpp"
 				>
 			</File>
 		</Filter>
@@ -226,19 +204,15 @@
 			Filter="h;hpp;hxx;hm;inl;inc"
 			>
 			<File
-				RelativePath="src\axe_raster.h"
+				RelativePath="src\axe_m2_loader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\axrt_raster.h"
+				RelativePath="src\axm2_state.h"
 				>
 			</File>
 			<File
-				RelativePath="src\axrt_state.h"
-				>
-			</File>
-			<File
-				RelativePath="src\axrt_stdafx.h"
+				RelativePath="src\axm2_stdafx.h"
 				>
 			</File>
 		</Filter>
@@ -252,14 +226,6 @@
 			</File>
 			<File
 				RelativePath="doc\readme.txt"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="SOIL"
-			>
-			<File
-				RelativePath=".\src\soil\SOIL.h"
 				>
 			</File>
 		</Filter>

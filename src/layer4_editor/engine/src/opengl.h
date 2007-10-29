@@ -67,6 +67,7 @@ public:
 
 	void render_array(const float *points, unsigned int num_points);
 	void render_indexed_array(const float *points, unsigned int num_points, unsigned int *id_list);
+  unsigned int load_texture(const char* filename);
 
 	~opengl(); //< the destructor is important here!
 };

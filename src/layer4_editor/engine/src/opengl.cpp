@@ -477,6 +477,11 @@ void opengl::left_2d_mode()
   mode_2d = false;
 }
 
+unsigned int opengl::load_texture(const char* filename)
+{
+  return (unsigned int) axrt_load_texture(filename);
+}
+
 /**
 * deinit
 * Delete windows OpenGL rendering context
@@ -484,16 +489,6 @@ void opengl::left_2d_mode()
 bool opengl::deinit()
 {
   axrt_release();
-
-  /*
-  //! Free rendering context
-  if( rendering_context != NULL )
-  {
-    wglMakeCurrent( NULL, NULL );
-    wglDeleteContext( rendering_context );
-    rendering_context = NULL;
-  }
-  */
   return( true );
 }
 
