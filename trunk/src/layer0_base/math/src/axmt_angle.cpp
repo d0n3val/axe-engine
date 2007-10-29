@@ -178,12 +178,11 @@ void axe_angle::zero()
   radians = 0;
 }
 
-float axe_angle::wrap_pi()
+void axe_angle::wrap_pi()
 {
-  float a = radians.f + PI;
-  a -= floorf( a * INV_TWO_PI ) * TWO_PI;
-
-  return( a - PI );
+  radians.f += PI;
+  radians.f -= floorf( radians.f * INV_TWO_PI ) * TWO_PI;
+  radians.f -= PI;
 }
 
 float axe_angle::get_deg() const

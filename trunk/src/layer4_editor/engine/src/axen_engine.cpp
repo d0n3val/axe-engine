@@ -167,9 +167,10 @@ void axen_engine::log( const axe_string& str )
 void axen_engine::check_keys()
 {
   
-  axe_vector3 a;
-  a.create(-22.0f, 22.0f, -100.0f);
-  mopengl->camera.set_identity();
+  //axe_vector3 a;
+  //a.create(-22.0f, 22.0f, -100.0f);
+  //mopengl->camera.set_identity();
+  //mopengl->camera.set_position(a);
 
   // --------------------------
   bool  forward = input->is_key_down( EVENT_W_KEY );
@@ -257,7 +258,7 @@ void axen_engine::check_keys()
 void axen_engine::load_model()
 {
   const char *dir = axfs_get_current_dir();
-  id_file = axfs_create("..\\..\\..\\data\\xyz.m2");
+  id_file = axfs_create("..\\..\\..\\data\\crashzeppelin.m2");
 
   char const * pData = (const char*)axfs_get_data(id_file);
   memcpy(&header, pData, sizeof(ModelHeader));
@@ -326,7 +327,7 @@ void axen_engine::load_model()
 
 void axen_engine::draw_model()
 {
-  //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
   //	enable texturing
   glEnable( GL_TEXTURE_2D );
