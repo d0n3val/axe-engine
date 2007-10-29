@@ -198,7 +198,7 @@ struct AXMT_API axe_angle
 
   /*$1- Others ---------------------------------------------------------------*/
   void      zero();
-  float     wrap_pi();
+  void      wrap_pi();
   float     get_deg() const;
   axe_angle get_left_perpendicular() const;
   axe_angle get_right_perpendicular() const;
@@ -280,6 +280,7 @@ union AXMT_API  axe_vector2
   {
     float x, y;
   };
+
   //__declspec( align(16) )
   float ptr[2];
 
@@ -343,6 +344,7 @@ union AXMT_API  axe_vector3
   {
     float x, y, z;
   };
+
   //__declspec( align(16) )
   float ptr[3];
 
