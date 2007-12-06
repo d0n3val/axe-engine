@@ -5,6 +5,4 @@
 * @date      10 Jun 2004
 */
 
-#include "axct_stdafx.h"
-
 /* $Id: dummy.cpp,v 1.1 2004/06/11 20:14:28 doneval Exp $ */

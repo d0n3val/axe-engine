@@ -45,7 +45,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "105 Input", "src\layer1_sys
 		{D206392A-74F0-4702-B995-FFBE105C614D} = {D206392A-74F0-4702-B995-FFBE105C614D}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "200 Script", "src\layer2_support\script\script.vcproj", "{5CF4F3CA-B49D-45C9-A253-E1027EBAD031}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "200 Angel Script", "src\layer2_support\script\script.vcproj", "{5CF4F3CA-B49D-45C9-A253-E1027EBAD031}"
 	ProjectSection(ProjectDependencies) = postProject
 		{396560B3-0F61-497C-9E25-83CA96178D8D} = {396560B3-0F61-497C-9E25-83CA96178D8D}
 		{3D5E66AE-3740-4255-B533-62837DFADFA7} = {3D5E66AE-3740-4255-B533-62837DFADFA7}
@@ -85,7 +85,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "112 Plug-in", "src\layer1_s
 		{6E18F309-744E-428D-BA5F-11103426FC35} = {6E18F309-744E-428D-BA5F-11103426FC35}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F11495CB-6493-4ADA-9189-88E79E44C978}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{F11495CB-6493-4ADA-9189-88E79E44C978}"
 	ProjectSection(SolutionItems) = preProject
 		doc\Coding_style.txt = doc\Coding_style.txt
 		doc\Components.txt = doc\Components.txt
@@ -119,6 +119,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "114 M2 loader", "src\layer1_system\m2_loader\m2_loader.vcproj", "{0EE6BE11-8339-49F0-9335-25796279FE67}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "201 Sql", "src\layer2_support\sql\sql.vcproj", "{154688D2-2C55-4A4A-95A5-60EB27F8A783}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "203 Python", "src\layer2_support\python\python.vcproj", "{BE824B51-7724-4BFF-97C1-A1FF02359BDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -226,6 +228,10 @@ Global
 		{154688D2-2C55-4A4A-95A5-60EB27F8A783}.Debug|Win32.Build.0 = Debug|Win32
 		{154688D2-2C55-4A4A-95A5-60EB27F8A783}.Release|Win32.ActiveCfg = Release|Win32
 		{154688D2-2C55-4A4A-95A5-60EB27F8A783}.Release|Win32.Build.0 = Release|Win32
+		{BE824B51-7724-4BFF-97C1-A1FF02359BDF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE824B51-7724-4BFF-97C1-A1FF02359BDF}.Debug|Win32.Build.0 = Debug|Win32
+		{BE824B51-7724-4BFF-97C1-A1FF02359BDF}.Release|Win32.ActiveCfg = Release|Win32
+		{BE824B51-7724-4BFF-97C1-A1FF02359BDF}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

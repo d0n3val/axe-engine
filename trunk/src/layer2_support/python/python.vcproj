@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8,00"
-	Name="200 Angel Script"
-	ProjectGUID="{5CF4F3CA-B49D-45C9-A253-E1027EBAD031}"
-	RootNamespace="200 Script"
+	Name="203 Python"
+	ProjectGUID="{BE824B51-7724-4BFF-97C1-A1FF02359BDF}"
+	RootNamespace="999 Python"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\global;..\..\include"
+				AdditionalIncludeDirectories="..\..\global; ..\..\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -49,11 +49,10 @@
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="axsc_stdafx.h"
+				PrecompiledHeaderThrough="axpy_stdafx.h"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="4"
-				ShowIncludes="false"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -66,15 +65,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ShowProgress="0"
-				OutputFile="../../output_debug/axe_script.dll"
+				OutputFile="../../output_debug/axe_python.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../output_debug/lib/"
-				IgnoreDefaultLibraryNames="libcmtd.lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
 				SubSystem="2"
-				ImportLibrary="../../output_debug/lib/axe_script.lib"
+				ImportLibrary="../../output_debug/lib/axe_python.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -100,7 +97,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 		<Configuration
@@ -139,7 +135,7 @@
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="axsc_stdafx.h"
+				PrecompiledHeaderThrough="axpy_stdafx.h"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -155,15 +151,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../../output_release/axe_script.dll"
+				OutputFile="../../output_release/axe_python.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../output_release/lib/"
-				IgnoreDefaultLibraryNames="libcmt.lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="../../output_release/lib/axe_script.lib"
+				ImportLibrary="../../output_release/lib/axe_python.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -189,7 +184,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 	</Configurations>
@@ -201,35 +195,7 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm"
 			>
 			<File
-				RelativePath=".\src\axsc_call_function.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_check_errors.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_compile.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_init.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_load_file.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_register.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_register_class.cpp"
-				>
-			</File>
-			<File
-				RelativePath="src\axsc_script.cpp"
+				RelativePath="src\axpy_python.cpp"
 				>
 			</File>
 		</Filter>
@@ -238,19 +204,15 @@
 			Filter="h;hpp;hxx;hm;inl;inc"
 			>
 			<File
-				RelativePath="src\axe_script.h"
+				RelativePath="src\axe_python.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\axsc_script.h"
+				RelativePath="src\axpy_state.h"
 				>
 			</File>
 			<File
-				RelativePath="src\axsc_state.h"
-				>
-			</File>
-			<File
-				RelativePath="src\axsc_stdafx.h"
+				RelativePath="src\axpy_stdafx.h"
 				>
 			</File>
 		</Filter>
@@ -264,14 +226,6 @@
 			</File>
 			<File
 				RelativePath="doc\readme.txt"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="angelscript"
-			>
-			<File
-				RelativePath=".\src\angelscript\angelscript.h"
 				>
 			</File>
 		</Filter>
