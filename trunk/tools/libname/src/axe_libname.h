@@ -40,7 +40,7 @@ enum axxx_states
 extern "C"
 {
 
-  /*$1- axpl_plug_in.cpp -----------------------------------------------------*/
+  /*$1- axxx_libname.cpp -----------------------------------------------------*/
   AXXX_API unsigned int axxx_get( const int query_state );
   AXXX_API unsigned int axxx_set( const int query_state, const unsigned int new_value );
   AXXX_API const char*  axxx_get_error_message( const unsigned int error_number );
