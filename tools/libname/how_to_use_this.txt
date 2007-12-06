@@ -17,15 +17,15 @@ and will save some valuable time and hadaches! Follow this steps:
   	It means that all files and funstions will be prefixed with a "axrt_"
   	code that means "Axe raster"
 
-- Create a copy of "libname" directory
+- Create a copy of "libname" directory and delete all .svn folders in it
 
 - Rename it to the new library name 
 	
 	* example: "raster"
 
-- Rename "axe_libname.vcproj" and "axe_libname_test.vcproj" to new lib name
+- Rename "libname.vcproj" to new lib name
 	
-	* example: "raster.vcproj" and "raster_test.vcproj"
+	* example: "libname.vcproj" -> "raster.vcproj"
 
 - Enter both files with a plain editor (like notepad or ultraedit) and replace 
   all words "libname" for the new lib name. Replace "axxx" for your new 4

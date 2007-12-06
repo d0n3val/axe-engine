@@ -2,9 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8,00"
-	Name="200 Angel Script"
-	ProjectGUID="{5CF4F3CA-B49D-45C9-A253-E1027EBAD031}"
-	RootNamespace="200 Script"
+	Name="test"
+	ProjectGUID="{C8C69A2F-01B6-422e-B1C6-5100BF297ABE}"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -19,7 +18,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="debug"
 			IntermediateDirectory="debug"
-			ConfigurationType="2"
+			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="2"
 			>
@@ -41,19 +40,15 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\global;..\..\include"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL"
+				AdditionalIncludeDirectories="../../../global;../../../include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
-				ExceptionHandling="0"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
-				RuntimeTypeInfo="false"
+				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="axsc_stdafx.h"
-				WarningLevel="4"
-				Detect64BitPortabilityProblems="false"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
-				ShowIncludes="false"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -66,15 +61,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ShowProgress="0"
-				OutputFile="../../output_debug/axe_script.dll"
+				OutputFile="test.exe"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="../../output_debug/lib/"
-				IgnoreDefaultLibraryNames="libcmtd.lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
-				SubSystem="2"
-				ImportLibrary="../../output_debug/lib/axe_script.lib"
+				SubSystem="1"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -100,14 +91,13 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="release"
 			IntermediateDirectory="release"
-			ConfigurationType="2"
+			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="2"
 			>
@@ -131,15 +121,12 @@
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
-				AdditionalIncludeDirectories="..\..\global; ..\..\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL"
+				AdditionalIncludeDirectories="../../../global;../../../include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				StringPooling="true"
-				ExceptionHandling="0"
-				RuntimeLibrary="2"
+				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
-				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="axsc_stdafx.h"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -155,15 +142,12 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../../output_release/axe_script.dll"
+				OutputFile="test.exe"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../output_release/lib/"
-				IgnoreDefaultLibraryNames="libcmt.lib"
 				GenerateDebugInformation="true"
-				SubSystem="2"
+				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="../../output_release/lib/axe_script.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -189,92 +173,20 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 	</Configurations>
 	<References>
 	</References>
 	<Files>
-		<Filter
-			Name="source"
-			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm"
+		<File
+			RelativePath=".\axpy_test.cpp"
 			>
-			<File
-				RelativePath=".\src\axsc_call_function.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_check_errors.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_compile.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_init.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_load_file.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_register.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_register_class.cpp"
-				>
-			</File>
-			<File
-				RelativePath="src\axsc_script.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="header"
-			Filter="h;hpp;hxx;hm;inl;inc"
+		</File>
+		<File
+			RelativePath=".\axpy_test.h"
 			>
-			<File
-				RelativePath="src\axe_script.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\axsc_script.h"
-				>
-			</File>
-			<File
-				RelativePath="src\axsc_state.h"
-				>
-			</File>
-			<File
-				RelativePath="src\axsc_stdafx.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="docs"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;txt:doc"
-			>
-			<File
-				RelativePath="doc\changelog.txt"
-				>
-			</File>
-			<File
-				RelativePath="doc\readme.txt"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="angelscript"
-			>
-			<File
-				RelativePath=".\src\angelscript\angelscript.h"
-				>
-			</File>
-		</Filter>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
