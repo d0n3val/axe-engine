@@ -10,6 +10,15 @@
 #include "axe_internal_defs.h"
 #include "axe_defs.h"
 
+/*$1- Python headers and libs ------------------------------------------------*/
+#include "Python25/include/Python.h"
+#ifdef _DEBUG
+  #pragma comment( lib, "src/Python25/libs/python25.lib" )
+  #pragma message( "WARNING: Avoid compiling axe_python in debug, use release version instead !!!" )
+#else
+  #pragma comment( lib, "src/Python25/libs/python25.lib" )
+#endif
+
 /*$1- Other AXE libs needed --------------------------------------------------*/
 #include "axe_string.h"
 

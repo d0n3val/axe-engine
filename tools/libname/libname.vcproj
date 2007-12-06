@@ -97,6 +97,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 		<Configuration
@@ -184,6 +185,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
 			/>
 		</Configuration>
 	</Configurations>

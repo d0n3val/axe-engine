@@ -81,7 +81,11 @@ new names.
 	* @date		24/11/2003
 	*/
     
-- Only to make sure all is OK, compile and run the new projects.
+- Compile the new lib under axe solution
+
+- Now open the test suite and add to Project conf->Debugging->Home Directory:
+  - "../../../output_debug" for debug configuration
+  - "../../../output_release" for debug configuration
 
 - Delete this file from the newly created directory!
 

@@ -40,7 +40,7 @@ enum axpy_states
 extern "C"
 {
 
-  /*$1- axpl_plug_in.cpp -----------------------------------------------------*/
+  /*$1- axpy_python.cpp ------------------------------------------------------*/
   AXPY_API unsigned int axpy_get( const int query_state );
   AXPY_API unsigned int axpy_set( const int query_state, const unsigned int new_value );
   AXPY_API const char*  axpy_get_error_message( const unsigned int error_number );
@@ -48,6 +48,10 @@ extern "C"
 
   AXPY_API int          axpy_get_int( const int query_state );
   AXPY_API int          axpy_set_int( const int query_state, const int new_value );
+
+  /*$1- axpy_init.cpp --------------------------------------------------------*/
+  AXPY_API int  axpy_init();
+  AXPY_API int  axpy_finalize();
 } // extern "C"
 #endif // __AXE_PYTHON_H__
 

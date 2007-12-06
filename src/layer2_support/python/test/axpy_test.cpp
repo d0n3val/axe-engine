@@ -64,10 +64,13 @@ int main()
     return( 0 );
   }
 
+  axpy_init();
+
   // Start ---------------------------------------------
   getchar();
 
   // Finish --------------------------------------------
+  axpy_finalize();
   printf( "\nAxe 'python' library test FINISHED\n" );
 
   return( 1 );
