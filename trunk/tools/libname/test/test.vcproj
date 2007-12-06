@@ -180,11 +180,11 @@
 	</References>
 	<Files>
 		<File
-			RelativePath=".\axrt_test.cpp"
+			RelativePath=".\axxx_test.cpp"
 			>
 		</File>
 		<File
-			RelativePath=".\axrt_test.h"
+			RelativePath=".\axxx_test.h"
 			>
 		</File>
 	</Files>
