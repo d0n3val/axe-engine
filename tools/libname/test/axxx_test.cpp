@@ -1,21 +1,21 @@
 /**
 * @file
-* Axe 'raster' test code
-* @see axe_raster.h
+* Axe 'libname' test code
+* @see axe_libname.h
 */
-#include "axrt_test.h"
+#include "axxx_test.h"
 
-#define AXRT_NO_AUTOLINK
-#include "axe_raster.h"
+#define AXXX_NO_AUTOLINK
+#include "axe_libname.h"
 
 /// Version of this test code
-#define AXE_RASTER_TEST_VERSION 1
+#define AXE_LIBNAME_TEST_VERSION 1
 
 // Use proper library --------
 #ifdef _DEBUG
-  #pragma comment( lib, "../../../output_debug/lib/axe_raster.lib" )
+  #pragma comment( lib, "../../../output_debug/lib/axe_libname.lib" )
 #else
-  #pragma comment( lib, "../../../output_release/lib/axe_raster.lib" )
+  #pragma comment( lib, "../../../output_release/lib/axe_libname.lib" )
 #endif
 
 /**
@@ -23,7 +23,7 @@
 */
 void error( int num, const char* file, long line )
 {
-  printf( "\n\n\n*** ERROR in %s(%u): %s\n", file, line, axrt_get_error_message(num) );
+  printf( "\n\n\n*** ERROR in %s(%u): %s\n", file, line, axxx_get_error_message(num) );
   getchar();
 }
 
@@ -34,19 +34,19 @@ int check_versions()
 {
   printf( "\nGetting lib version ... " );
 
-  int lib_version = axrt_get( AXRT_VERSION );
+  int lib_version = axxx_get( AXXX_VERSION );
 
-  if( lib_version != AXE_RASTER_TEST_VERSION )
+  if( lib_version != AXE_LIBNAME_TEST_VERSION )
   {
     printf(
       "This test program and the library versions differ! Lib:%d Test:%d\n",
       lib_version,
-      AXE_RASTER_TEST_VERSION );
+      AXE_LIBNAME_TEST_VERSION );
     getchar();
     return( 0 );
   }
 
-  printf( "Library Version: %d - This testing program: %d\n\n", lib_version, AXE_RASTER_TEST_VERSION );
+  printf( "Library Version: %d - This testing program: %d\n\n", lib_version, AXE_LIBNAME_TEST_VERSION );
 
   return( 1 );
 }
@@ -56,7 +56,7 @@ int check_versions()
 */
 int main()
 {
-  printf( "Axe 'raster' library test STARTED\n" );
+  printf( "Axe 'libname' library test STARTED\n" );
 
   // Check versions ------------------------------------
   if( check_versions() == 0 )
@@ -68,7 +68,7 @@ int main()
   getchar();
 
   // Finish --------------------------------------------
-  printf( "\nAxe 'raster' library test FINISHED\n" );
+  printf( "\nAxe 'libname' library test FINISHED\n" );
 
   return( 1 );
 }

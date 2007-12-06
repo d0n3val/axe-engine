@@ -3,18 +3,18 @@
 * @file
 * Main library managment functions
 */
-#include "axrt_stdafx.h"
+#include "axxx_stdafx.h"
 
 /** Global state of the library */
-axrt_state state;
+axxx_state state;
 
-#define AXRT_NUM_ERROR_MSG  1
+#define AXXX_NUM_ERROR_MSG  1
 
 /**
 * List of error messages
 " @see basic_error_messages
 */
-const char*   error_messages[AXRT_NUM_ERROR_MSG] = { "Unknown error" };
+const char*   error_messages[AXXX_NUM_ERROR_MSG] = { "Unknown error" };
 
 /**
 * Main entry for the DLL
@@ -35,24 +35,24 @@ BOOL APIENTRY DllMain()
 /**
 * Returns a library state 
 */
-AXRT_API unsigned int axrt_get( const int query_state )
+AXXX_API unsigned int axxx_get( const int query_state )
 {
   switch( query_state )
   {
-    case AXRT_VERSION:
+    case AXXX_VERSION:
       return( state.lib_version );
 
-    case AXRT_LIBRARY_ID:
+    case AXXX_LIBRARY_ID:
       return( state.lib_id );
 
-    case AXRT_LAST_ERROR:
+    case AXXX_LAST_ERROR:
       {
         int value = state.last_error;
         state.last_error = 0;
         return( value );
       }
 
-    case AXRT_DEBUG_MODE:
+    case AXXX_DEBUG_MODE:
       return( state.debug_mode );
 
     default:
@@ -64,11 +64,11 @@ AXRT_API unsigned int axrt_get( const int query_state )
 /**
 * Sets a library state
 */
-AXRT_API unsigned int axrt_set( const int query_state, const unsigned int new_value )
+AXXX_API unsigned int axxx_set( const int query_state, const unsigned int new_value )
 {
   switch( query_state )
   {
-    case AXRT_LAST_ERROR:
+    case AXXX_LAST_ERROR:
       state.last_error = new_value;
       break;
 
@@ -82,12 +82,12 @@ AXRT_API unsigned int axrt_set( const int query_state, const unsigned int new_va
 
 /**
 * Returns a message in english explaining an error code
-* @see AXRT_LAST_ERROR
+* @see AXXX_LAST_ERROR
 * @see error_messages
 */
-AXRT_API const char* axrt_get_error_message( const unsigned int error_number )
+AXXX_API const char* axxx_get_error_message( const unsigned int error_number )
 {
-  int ok = AXE_IN_RANGE( error_number, 0, (AXE_NUM_BASIC_ERROR_MSG + AXRT_NUM_ERROR_MSG - 1) );
+  int ok = AXE_IN_RANGE( error_number, 0, (AXE_NUM_BASIC_ERROR_MSG + AXXX_NUM_ERROR_MSG - 1) );
   AXE_CHECK_ERROR( ok, AXE_ERROR_MSG_UNKNOWN_ERROR_NUMBER );
 
   if( error_number < AXE_NUM_BASIC_ERROR_MSG )
@@ -103,7 +103,7 @@ AXRT_API const char* axrt_get_error_message( const unsigned int error_number )
 /**
 * Sets callback function to call in case of errors
 */
-AXRT_API int axrt_set_error_callback( void (*error_callback) (int, const char*, long) )
+AXXX_API int axxx_set_error_callback( void (*error_callback) (int, const char*, long) )
 {
   AXE_CHECK_DBG_ERROR( (NULL != error_callback), AXE_ERROR_MSG_BAD_ERROR_CALLBACK_FUNCTION );
 
@@ -112,4 +112,4 @@ AXRT_API int axrt_set_error_callback( void (*error_callback) (int, const char*, 
   return( AXE_TRUE );
 }
 
-/* $Id: axrt_raster.cpp,v 1.1 2004/09/24 17:58:39 doneval Exp $ */
+/* $Id: axxx_libname.cpp,v 1.1 2004/09/24 17:58:39 doneval Exp $ */

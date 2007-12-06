@@ -14,12 +14,12 @@
 #include "axe_string.h"
 
 /*$1- User includes ----------------------------------------------------------*/
-#include "axe_raster.h"
+#include "axe_libname.h"
 
 /*$1- State ------------------------------------------------------------------*/
 #include "axe_state.h"
-#include "axrt_state.h"
+#include "axxx_state.h"
 
-extern axrt_state state;
+extern axxx_state state;
 
-/* $Id: axrt_stdafx.h,v 1.1 2004/05/02 16:32:33 doneval Exp $ */
+/* $Id: axxx_stdafx.h,v 1.1 2004/05/02 16:32:33 doneval Exp $ */
