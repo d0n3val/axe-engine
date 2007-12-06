@@ -1,6 +1,6 @@
 /**
 * @file
-* Axe 'raster' test header
+* Axe 'libname' test header
 */
 // ---------------------------
 #pragma once
