@@ -118,6 +118,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "113 Raster gl", "src\layer1
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "114 M2 loader", "src\layer1_system\m2_loader\m2_loader.vcproj", "{0EE6BE11-8339-49F0-9335-25796279FE67}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "201 Sql", "src\layer2_support\sql\sql.vcproj", "{154688D2-2C55-4A4A-95A5-60EB27F8A783}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -220,6 +222,10 @@ Global
 		{0EE6BE11-8339-49F0-9335-25796279FE67}.Debug|Win32.Build.0 = Debug|Win32
 		{0EE6BE11-8339-49F0-9335-25796279FE67}.Release|Win32.ActiveCfg = Release|Win32
 		{0EE6BE11-8339-49F0-9335-25796279FE67}.Release|Win32.Build.0 = Release|Win32
+		{154688D2-2C55-4A4A-95A5-60EB27F8A783}.Debug|Win32.ActiveCfg = Debug|Win32
+		{154688D2-2C55-4A4A-95A5-60EB27F8A783}.Debug|Win32.Build.0 = Debug|Win32
+		{154688D2-2C55-4A4A-95A5-60EB27F8A783}.Release|Win32.ActiveCfg = Release|Win32
+		{154688D2-2C55-4A4A-95A5-60EB27F8A783}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
