@@ -1,7 +1,6 @@
-
- /**
+/**
 * @file
-* Main library managment functions
+* Main library management functions
 */
 #include "axxx_stdafx.h"
 

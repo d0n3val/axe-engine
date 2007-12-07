@@ -53,6 +53,7 @@
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="4"
+				ShowIncludes="false"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -97,7 +98,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy  /Y src\axe_*.h ..\..\include\."
+				CommandLine="xcopy  /Y src\$(TargetName).h ..\..\include\.&#x0D;&#x0A;xcopy  /Y ..\..\output_$(OutDir)\$(TargetFileName) test\."
 			/>
 		</Configuration>
 		<Configuration
@@ -202,6 +203,10 @@
 			</File>
 			<File
 				RelativePath="src\axpy_python.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\axpy_run.cpp"
 				>
 			</File>
 		</Filter>

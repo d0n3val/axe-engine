@@ -17,6 +17,7 @@ class axpy_state : public axe_state
 {
   public:
     char  default_directory[MAX_DIR_LEN];
+    bool init;
   public:
     axpy_state() :
     axe_state()
@@ -26,10 +27,17 @@ class axpy_state : public axe_state
       lib_version = 1;
 
       strcpy_s( default_directory, MAX_DIR_LEN, ".\\" );
+
+      // ------------
+      init = false;
     }
 
     ~axpy_state()
     {
+      if (init == true)
+      {
+        axpy_finalize();
+      }
     }
 };
 #endif // __AXPY_STATE_H__

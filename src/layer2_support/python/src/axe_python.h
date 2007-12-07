@@ -52,6 +52,10 @@ extern "C"
   /*$1- axpy_init.cpp --------------------------------------------------------*/
   AXPY_API int  axpy_init();
   AXPY_API int  axpy_finalize();
+
+  /*$1- axpy_run.cpp ---------------------------------------------------------*/
+  AXPY_API int  axpy_exec( const char* code );
+  AXPY_API int  axpy_load_file( const char* file_name, const char* function_name );
 } // extern "C"
 #endif // __AXE_PYTHON_H__
 

@@ -187,6 +187,10 @@
 			RelativePath=".\axpy_test.h"
 			>
 		</File>
+		<File
+			RelativePath=".\script_test.py"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
