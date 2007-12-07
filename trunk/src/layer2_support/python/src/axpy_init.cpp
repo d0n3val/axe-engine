@@ -1,5 +1,4 @@
-
- /**
+/**
 * @file
 * High level init / finalize functions
 */
@@ -8,9 +7,13 @@
 /**
 * Starts Python VM
 */
-AXPY_API int axpy_init ()
+AXPY_API int axpy_init()
 {
+  AXE_ASSERT( state.init == false );
+
   Py_Initialize();
+  state.init = true;
+
   return( AXE_TRUE );
 }
 
@@ -19,7 +22,11 @@ AXPY_API int axpy_init ()
 */
 AXPY_API int axpy_finalize()
 {
+  AXE_ASSERT( state.init == true );
+
   Py_Finalize();
+  state.init = false;
+
   return( AXE_TRUE );
 }
 

@@ -69,9 +69,27 @@ int main()
   // Start ---------------------------------------------
   getchar();
 
+  // Test ----------------------------------------------
+  printf( "\nExecuting print 'hello world'...\n" );
+  axpy_exec( "print 'hello world'" );
+
+  // Test ----------------------------------------------
+  printf( "\nLoading script_test.py and executing foo() function...\n" );
+  if( axpy_load_file( "script_test", "foo" ) == AXE_FALSE )
+  {
+    printf( "\nFAIL\n" );
+    axpy_finalize();
+    return( 0 );
+  }
+  
+  // Test ----------------------------------------------
+  printf( "\nExecuting function 'foo()' included in script_test.py, should print 'Im foo from test.py'\n" );
+  axpy_exec( "import script_test\nfoo()" );
+
   // Finish --------------------------------------------
   axpy_finalize();
   printf( "\nAxe 'python' library test FINISHED\n" );
+  getchar();
 
   return( 1 );
 }

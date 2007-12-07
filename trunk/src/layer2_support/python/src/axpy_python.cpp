@@ -1,12 +1,11 @@
-
- /**
+/**
 * @file
-* Main library managment functions
+* Main library management functions
 */
 #include "axpy_stdafx.h"
 
 /** Global state of the library */
-axpy_state state;
+axpy_state  state;
 
 #define AXPY_NUM_ERROR_MSG  1
 
