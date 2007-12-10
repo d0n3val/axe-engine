@@ -8,8 +8,7 @@
 #ifndef __AXE_STRING_H__
   #define __AXE_STRING_H__
 
-/*$1-  main definitions for Axe libs -----------------------------------------*/
-  #include "axe_defs.h"
+
 
 /*$1- Lib version ------------------------------------------------------------*/
   #define AXE_STRING_VERSION  1

@@ -20,6 +20,7 @@
 #endif
 
 /*$1- Other AXE libs needed --------------------------------------------------*/
+#include "axe_any.h"
 #include "axe_string.h"
 
 /*$1- User includes ----------------------------------------------------------*/

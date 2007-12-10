@@ -39,12 +39,12 @@
 /*$1- We do not allow exceptions ---------------------------------------------*/
 //  #ifdef _CPPUNWIND
 //    #error "You must disable exceptions"
-  //#endif
+//  #endif
 
 /*$1- We also do not allow RTTI ----------------------------------------------*/
-  #ifdef _CPPRTTI
-    #error "You must disable RTTI"
-  #endif
+//  #ifdef _CPPRTTI
+//    #error "You must disable RTTI"
+//  #endif
 
 /*$1- Look for Pentium -------------------------------------------------------*/
   #ifndef _M_IX86

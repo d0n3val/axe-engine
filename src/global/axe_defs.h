@@ -89,6 +89,14 @@
 
 /*$1- Convert to bool --------------------------------------------------------*/
   #define AXE_TO_BOOL( a )  ( (a != 0) ? true : false )
+
+/*$1- Swap two values --------------------------------------------------------*/
+  template <class VALUE_TYPE> inline void axe_swap ( VALUE_TYPE& a, VALUE_TYPE& b )
+  {
+    VALUE_TYPE tmp = a; 
+    a = b, b = tmp;
+  }
+
 #endif // __AXE_DEFS_H__
 
 /* $Id: axe_defs.h,v 1.4 2004/09/20 21:28:08 doneval Exp $ */
