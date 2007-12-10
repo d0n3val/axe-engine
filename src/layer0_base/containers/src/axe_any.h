@@ -140,7 +140,7 @@ VALUE_TYPE * any_cast(axe_any * operand)
 template<typename VALUE_TYPE>
 const VALUE_TYPE * any_cast(const axe_any * operand)
 {
-    return( any_cast<VALUE_TYPE>( const_cast<axe_any *>(operand) ) );
+  return( any_cast<VALUE_TYPE>( const_cast<axe_any *>(operand) ) );
 }
 
 template<typename VALUE_TYPE>
