@@ -94,7 +94,7 @@ void dump_axe_many(axe_many const& table)
     else if (AXE_ANY_IS_TYPE(p_item->data, axe_string))
     {
       //axe_string s = any_cast<axe_string>(p_item->data);
-      printf("%d: (axe_string) %s", i, "?" );
+      //printf("%d: (axe_string) %s", i, (any_cast<axe_string>(p_item->data)).get_str() );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, void *))
     {
@@ -102,8 +102,7 @@ void dump_axe_many(axe_many const& table)
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, axe_many))
     {
-      axe_any *any = &(p_item->data);
-      //axe_list<axe_any> * p = any_cast<axe_many *>(any);
+      axe_many p(any_cast<axe_many>(p_item->data));
       printf("%d: (axe_many) -------->\n", i);
       //dump_axe_many(any_cast<axe_many>(p_item->data));
       //printf("<----------------------");
@@ -302,7 +301,7 @@ int main() {
   printf( "\n\nAssigning values\n" );
   void *p = NULL;
   const char *ps = "hi world";
-  test t1;
+  test t1,t2,t3;
   axe_string s("hello world");
   axe_many table;
   axe_many nested_table;
@@ -326,18 +325,19 @@ int main() {
   nested_table.add(2);
   nested_table.add(3);
 
-  //table.add(true);
-  //table.add(3);
-  //table.add(3.0f);
-  //table.add(3.0);
-  //table.add(2.02);
-  //table.add(ps);
+  table.add(true);
+  table.add(3);
+  table.add(3.0f);
+  table.add(3.0);
+  table.add(2.02);
+  table.add(ps);
+  table.add(s);
   table.add(nested_table);
-  //table.add(p);
-  //table.add(ps);
-  //////table.add(t1);
-  //table.add(t2);
-//  table.add(t3);
+  table.add(p);
+  table.add(ps);
+  table.add(t1);
+  table.add(t2);
+  table.add(t3);
 
   // Dump table
   dump_axe_many(table);

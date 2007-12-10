@@ -92,6 +92,25 @@ class axe_list
     }
 
     /**
+    * Copy Constructor
+    */
+    axe_list(const axe_list<tdata>& list) : size( _size )
+    {
+      start = end = NULL;
+      _size = 0;
+
+      // add all elements in the other list
+      axe_list_item<tdata>*   item;
+
+      item = list.start;
+      while( item != NULL )
+      {
+        add( item->data );
+        item = item->next;
+      }
+    }
+
+    /**
     * Destructor
     */
     ~axe_list()
