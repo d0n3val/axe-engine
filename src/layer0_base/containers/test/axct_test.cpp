@@ -44,6 +44,11 @@ struct test {
     printf("\nTEST constructor called: %i\n", me);
   }
 
+  test(const test& t) {
+    me = ++n;
+    printf("\nTEST constructor called: %i\n", me);
+  }
+
   ~test() {
     printf("\nTEST destructor called: %i\n", me);
     getchar();
@@ -69,43 +74,41 @@ void dump_axe_many(axe_many const& table)
   {
     if (AXE_ANY_IS_TYPE(p_item->data, bool))
     {
-      printf("%d: (bool) %s", i, (any_cast<bool>(p_item->data) == true) ? "true" : "false" );
+      printf("%d: (bool) %s", i, (*(p_item->data.cast<bool>()) == true) ? "true" : "false" );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, char))
     {
-      printf("%d: (char) %c", i, any_cast<char>(p_item->data) );
+      printf("%d: (char) %c", i, *(p_item->data.cast<char>()) );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, int))
     {
-      printf("%d: (int) %d", i, any_cast<int>(p_item->data) );
+      printf("%d: (int) %d", i, *(p_item->data.cast<int>()) );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, float))
     {
-      printf("%d: (float) %f", i, any_cast<float>(p_item->data) );
+      printf("%d: (float) %f", i, *(p_item->data.cast<float>()) );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, double))
     {
-      printf("%d: (double) %f", i, any_cast<double>(p_item->data) );
+      printf("%d: (double) %f", i, *(p_item->data.cast<double>()) );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, const char *))
     {
-      printf("%d: (char*) %s", i, any_cast<const char *>(p_item->data) );
+      printf("%d: (char*) %s", i, *(p_item->data.cast<const char *>()) );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, axe_string))
     {
-      //axe_string s = any_cast<axe_string>(p_item->data);
-      //printf("%d: (axe_string) %s", i, (any_cast<axe_string>(p_item->data)).get_str() );
+      printf("%d: (axe_string) %s", i, (p_item->data.cast<axe_string>())->get_str() );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, void *))
     {
-      printf("%d: (void*) 0x%p", i, any_cast<void *>(p_item->data) );
+      printf("%d: (void*) 0x%p", i, *(p_item->data.cast<void *>()) );
     }
     else if (AXE_ANY_IS_TYPE(p_item->data, axe_many))
     {
-      axe_many p(any_cast<axe_many>(p_item->data));
       printf("%d: (axe_many) -------->\n", i);
-      //dump_axe_many(any_cast<axe_many>(p_item->data));
-      //printf("<----------------------");
+      dump_axe_many(*(p_item->data.cast<axe_many>()));
+      printf("<----------------------");
     }
     else
     {
@@ -299,6 +302,7 @@ int main() {
 
   /*$1- variant "any" test ---------------------------------------------------*/
   printf( "\n\nAssigning values\n" );
+
   void *p = NULL;
   const char *ps = "hi world";
   test t1,t2,t3;
