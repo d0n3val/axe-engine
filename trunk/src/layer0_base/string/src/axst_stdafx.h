@@ -6,10 +6,12 @@
 // ---------------------------
 #pragma once
 
-// ---------------------------
+/*$1- Other compiling options ------------------------------------------------*/
+#pragma once
+
+/*$1- Common includes --------------------------------------------------------*/
 #include "axe_internal_defs.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "axe_defs.h"
 
 // ---------------------------
 #include "axe_string.h"

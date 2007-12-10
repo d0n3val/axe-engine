@@ -14,6 +14,12 @@ AXPY_API int axpy_init()
   Py_Initialize();
   state.init = true;
 
+  axe_any a(3);
+  axe_any b(3.0);
+  axe_any c(3.0f);
+  axe_any d(&("hola mundo"));
+  axe_any e(false);
+
   return( AXE_TRUE );
 }
 

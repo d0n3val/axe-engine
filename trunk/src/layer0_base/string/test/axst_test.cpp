@@ -52,17 +52,17 @@ int main() {
   /*$1- Start ----------------------------------------------------------------*/
   printf( "\nCreating 'test' string ... \n" );
 
-  axst_string str1( "test" );
+  axe_string str1( "test" );
   printf( "RESULT 1: [%s] ", str1 );
 
   printf( "\nCreating 'Hello World' formatted string ... \n" );
 
-  axst_string str2( "Hello %s", "world" );
+  axe_string str2( "Hello %s", "world" );
   printf( "RESULT 2: [%s] ", str2 );
 
   printf( "\nCreating a copy from previous string ... \n" );
 
-  axst_string str3( str2 );
+  axe_string str3( str2 );
   printf( "RESULT 3: [%s] ", str3 );
 
   /*$1------------------------------------------------------------------------*/
@@ -101,11 +101,11 @@ int main() {
   unsigned int  size;
 
   printf( "\nGetting size for string 2 ... \n" );
-  size = str2.size;
+  size = str2.length();
   printf( "RESULT: [%d] ", size );
 
   printf( "\nGetting size for string 3 ... \n" );
-  size = str3.size;
+  size = str3.length();
   printf( "RESULT: [%d] ", size );
 
   /*$1------------------------------------------------------------------------*/
@@ -119,8 +119,9 @@ int main() {
 
   /*$1------------------------------------------------------------------------*/
   printf( "\nreplace test ...\n" );
-  cmp = str3.regex_replace( "world", "i found: \\0 jeje", str2 );
-  printf( "RESULT: [%s] ", str2 );
+  axe_string::regex_result res;
+  cmp = str3.regex_replace( "world", "i found: \\0 jeje", 0, &res );
+  printf( "RESULT: [%s] ", str3 );
 
   /*$1- Finish ---------------------------------------------------------------*/
   printf( "\n\nAxe 'string' library test FINISHED\n" );

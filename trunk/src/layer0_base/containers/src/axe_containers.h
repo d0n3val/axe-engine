@@ -8,7 +8,7 @@
 #ifndef __AXE_CONTAINERS_H__
   #define __AXE_CONTAINERS_H__
 
-/*$1-  Lib versio ------------------------------------------------------------*/
+/*$1-  Lib version -----------------------------------------------------------*/
   #define AXE_CONTAINERS_VERSION  1
   #define AXE_CONTAINERS_NAME     "CONTAINERS"
   #define AXE_CONTAINERS_LIBID    'AXCT'
@@ -24,8 +24,11 @@
 /*$1- Dynamic array template -------------------------------------------------*/
   #include "axe_dyn_array.h"
 
-/*$1- Dynamic array template -------------------------------------------------*/
+/*$1- BitSet template --------------------------------------------------------*/
   #include "axe_bitset.h"
+
+/*$1- Variant template -------------------------------------------------------*/
+  #include "axe_any.h"
 #endif // __AXE_CONTAINERS_H__
 
 /* $Id: axe_containers.h,v 1.3 2004/06/15 21:24:35 doneval Exp $ */

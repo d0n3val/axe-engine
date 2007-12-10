@@ -5,10 +5,19 @@
 */
 #include "axct_test.h"
 
+#define AXST_NO_AUTOLINK
 #include "axe_defs.h"
 #include "axe_containers.h"
+#include "axe_string.h"
 #include <crtdbg.h>
 #include <vector>
+#include <list>
+
+#ifdef _DEBUG
+#pragma comment( lib, "../../../output_debug/lib/axe_string.lib" )
+#else
+#pragma comment( lib, "../../../output_release/lib/axe_string.lib" )
+#endif
 
 int array_foreach( int& value, const long index );
 int array_sort( int& value1, int& value2 );
@@ -37,6 +46,7 @@ struct test {
 
   ~test() {
     printf("\nTEST destructor called: %i\n", me);
+    getchar();
   }
 };
 
@@ -49,6 +59,63 @@ void print_bitset(axe_bitset<5>& bitset) {
     printf("%d ", bitset[i]);
   }
 
+}
+
+void dump_axe_many(axe_many const& table) 
+{
+  // Dump table
+  int i = 0;
+  for( axe_list_item < axe_any > *p_item = table.start; p_item != NULL; p_item = p_item->next )
+  {
+    if (AXE_ANY_IS_TYPE(p_item->data, bool))
+    {
+      printf("%d: (bool) %s", i, (any_cast<bool>(p_item->data) == true) ? "true" : "false" );
+    }
+    else if (AXE_ANY_IS_TYPE(p_item->data, char))
+    {
+      printf("%d: (char) %c", i, any_cast<char>(p_item->data) );
+    }
+    else if (AXE_ANY_IS_TYPE(p_item->data, int))
+    {
+      printf("%d: (int) %d", i, any_cast<int>(p_item->data) );
+    }
+    else if (AXE_ANY_IS_TYPE(p_item->data, float))
+    {
+      printf("%d: (float) %f", i, any_cast<float>(p_item->data) );
+    }
+    else if (AXE_ANY_IS_TYPE(p_item->data, double))
+    {
+      printf("%d: (double) %f", i, any_cast<double>(p_item->data) );
+    }
+    else if (AXE_ANY_IS_TYPE(p_item->data, const char *))
+    {
+      printf("%d: (char*) %s", i, any_cast<const char *>(p_item->data) );
+    }
+    else if (AXE_ANY_IS_TYPE(p_item->data, axe_string))
+    {
+      //axe_string s = any_cast<axe_string>(p_item->data);
+      printf("%d: (axe_string) %s", i, "?" );
+    }
+    else if (AXE_ANY_IS_TYPE(p_item->data, void *))
+    {
+      printf("%d: (void*) 0x%p", i, any_cast<void *>(p_item->data) );
+    }
+    else if (AXE_ANY_IS_TYPE(p_item->data, axe_many))
+    {
+      axe_any *any = &(p_item->data);
+      //axe_list<axe_any> * p = any_cast<axe_many *>(any);
+      printf("%d: (axe_many) -------->\n", i);
+      //dump_axe_many(any_cast<axe_many>(p_item->data));
+      //printf("<----------------------");
+    }
+    else
+    {
+      printf("%d: (unknown)", i );
+    }
+
+    printf("\n");
+    ++i;
+  }
 }
 
 struct test2 {
@@ -216,7 +283,6 @@ int main() {
 
   printf( "\nAfter sorting:\n" );
   my_d_array.foreach( array_foreach );
-*/
   
   axe_dyn_array<test> my_array(3);
 
@@ -230,7 +296,51 @@ int main() {
 
   axe_dyn_array<test> my_array2;
   my_array2 = my_array;
-  
+*/
+
+  /*$1- variant "any" test ---------------------------------------------------*/
+  printf( "\n\nAssigning values\n" );
+  void *p = NULL;
+  const char *ps = "hi world";
+  test t1;
+  axe_string s("hello world");
+  axe_many table;
+  axe_many nested_table;
+
+  axe_any n = false;
+
+  bool b = false;
+  b = AXE_ANY_IS_TYPE(n, bool);
+  b = AXE_ANY_IS_TYPE(n, test);
+
+  n = 3.0f;
+  b = AXE_ANY_IS_TYPE(n, test);
+  b = AXE_ANY_IS_TYPE(n, float);
+
+  n = ps;
+  b = AXE_ANY_IS_SAME_TYPE(n, table);
+  b = AXE_ANY_IS_SAME_TYPE(n, p);
+  b = AXE_ANY_IS_SAME_TYPE(n, ps);
+
+  nested_table.add(1);
+  nested_table.add(2);
+  nested_table.add(3);
+
+  //table.add(true);
+  //table.add(3);
+  //table.add(3.0f);
+  //table.add(3.0);
+  //table.add(2.02);
+  //table.add(ps);
+  table.add(nested_table);
+  //table.add(p);
+  //table.add(ps);
+  //////table.add(t1);
+  //table.add(t2);
+//  table.add(t3);
+
+  // Dump table
+  dump_axe_many(table);
 
   // Finish -------------------------------------------
   printf( "\nAxe 'containers' library test FINISHED\n" );
